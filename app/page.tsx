@@ -23,6 +23,8 @@ export default function Home() {
   const [easterEggActive, setEasterEggActive] = useState(false);
   const [keySequence, setKeySequence] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const [theme, setTheme] = useState("theme-green");
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const draggableRef = useRef(null);
 
   useEffect(() => {
@@ -44,11 +46,11 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen w-full relative p-4 md:p-12 font-sans overflow-hidden">
+    <main className={`min-h-screen w-full relative p-4 md:p-12 font-sans overflow-hidden ${theme} transition-colors duration-500`}>
       {/* Background decoration - Fake Folders */}
       <div className="absolute top-10 left-10 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[#F8F5E9] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[#F8F5E9] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-[#F8F5E9] px-2 py-0.5 border-2 border-[#2d2d2d] -rotate-2">Projects</span>
+        <div className="w-16 h-12 bg-[var(--color-window)] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--color-window)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-[var(--color-window)] px-2 py-0.5 border-2 border-[#2d2d2d] -rotate-2">Projects</span>
       </div>
 
       <div className="absolute bottom-20 right-16 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
@@ -62,19 +64,19 @@ export default function Home() {
       </div>
 
       <div className="absolute bottom-10 left-32 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[#e0dcd0] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[#e0dcd0] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-[#F8F5E9] px-2 py-0.5 border-2 border-[#2d2d2d] rotate-2">Client Work</span>
+        <div className="w-16 h-12 bg-[var(--color-window-hover)] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--color-window-hover)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-[var(--color-window)] px-2 py-0.5 border-2 border-[#2d2d2d] rotate-2">Client Work</span>
       </div>
 
       {/* Main Window Container */}
       <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden flex items-center justify-center">
         <Draggable handle=".drag-handle" nodeRef={draggableRef} defaultPosition={{ x: 0, y: 0 }} disabled={isMobile}>
-          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-5xl h-full md:h-[85vh] bg-[#F8F5E9] md:border-[3px] border-[#2d2d2d] md:rounded-xl shadow-none md:shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative transition-shadow">
+          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-5xl h-full md:h-[85vh] bg-[var(--color-window)] md:border-[3px] border-[#2d2d2d] md:rounded-xl shadow-none md:shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative transition-shadow">
             {/* Title Bar - Drag Handle */}
-            <div className="drag-handle h-12 border-b-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
+            <div className="drag-handle h-12 border-b-[3px] border-[#2d2d2d] bg-[var(--color-window)] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
               <div className="flex gap-2">
                 <div className="w-4 h-4 rounded-full bg-[#2d2d2d] border-[3px] border-[#2d2d2d] hover:bg-[#666] cursor-pointer" />
-                <div className="w-4 h-4 rounded-full bg-[#e0dcd0] border-[3px] border-[#2d2d2d] hover:bg-[#666] cursor-pointer" />
+                <div className="w-4 h-4 rounded-full bg-[var(--color-window-hover)] border-[3px] border-[#2d2d2d] hover:bg-[#666] cursor-pointer" />
                 <div className="w-4 h-4 rounded-full bg-white border-[3px] border-[#2d2d2d] hover:bg-[#666] cursor-pointer" />
               </div>
               <div className="font-black tracking-wide text-[#2d2d2d] uppercase text-sm">Slack_Portfolio.app</div>
@@ -84,7 +86,7 @@ export default function Home() {
             {/* Content Area */}
             <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
               {/* Sidebar */}
-              <div className="w-full md:max-w-[260px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex md:flex-col shrink-0 overflow-x-auto custom-scrollbar md:overflow-visible relative">
+              <div className="w-full md:max-w-[260px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#2d2d2d] bg-[var(--color-window)] flex md:flex-col shrink-0 overflow-x-auto custom-scrollbar md:overflow-visible relative">
 
                 {/* Channels List (Horizontal on Mobile, Vertical on Desktop) */}
                 <div className="flex md:flex-col p-2 md:p-4 gap-2 md:gap-6 w-max mx-auto md:w-full md:mx-0 items-center md:items-stretch">
@@ -96,19 +98,19 @@ export default function Home() {
                     <div className="flex flex-row md:flex-col gap-2 md:space-y-1 md:ml-2">
                       <button
                         onClick={() => setActiveTab("profile")}
-                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'profile' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'profile' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[var(--color-window-hover)] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
                       >
                         <span className="text-xl leading-none opacity-50">#</span> profile
                       </button>
                       <button
                         onClick={() => setActiveTab("certificates")}
-                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'certificates' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'certificates' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[var(--color-window-hover)] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
                       >
                         <span className="text-xl leading-none opacity-50">#</span> certificates
                       </button>
                       <button
                         onClick={() => setActiveTab("contact")}
-                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'contact' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'contact' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[var(--color-window-hover)] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
                       >
                         <span className="text-xl leading-none opacity-50">#</span> contact
                       </button>
@@ -165,14 +167,57 @@ export default function Home() {
                     <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
                       <Search className="text-[#2d2d2d]" size={20} strokeWidth={3} />
                     </button>
-                    <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
-                      <Settings className="text-[#2d2d2d]" size={20} strokeWidth={3} />
-                    </button>
+                    <div className="relative">
+                      <button
+                        onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+                        className={`p-1 border-2 rounded transition-all ${isSettingsOpen ? 'bg-gray-100 border-[#2d2d2d]' : 'hover:bg-gray-100 border-transparent hover:border-[#2d2d2d]'}`}
+                      >
+                        <Settings className="text-[#2d2d2d]" size={20} strokeWidth={3} />
+                      </button>
+
+                      {isSettingsOpen && (
+                        <div className="absolute top-full right-0 mt-2 bg-white border-[3px] border-[#2d2d2d] rounded shadow-[4px_4px_0_0_#2d2d2d] w-48 z-50 overflow-hidden">
+                          <div className="px-3 py-2 border-b-[3px] border-[#2d2d2d] bg-[#f8f5e9] font-black uppercase text-xs">
+                            Theme Changer
+                          </div>
+                          <div className="p-2 space-y-1">
+                            <button
+                              onClick={() => { setTheme('theme-green'); setIsSettingsOpen(false); }}
+                              className="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-gray-100 font-bold text-sm border-2 border-transparent hover:border-[#2d2d2d] transition-all rounded"
+                            >
+                              <span>Slack Green</span>
+                              {theme === 'theme-green' && <div className="w-2 h-2 rounded-full bg-[#2d2d2d]" />}
+                            </button>
+                            <button
+                              onClick={() => { setTheme('theme-gray'); setIsSettingsOpen(false); }}
+                              className="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-gray-100 font-bold text-sm border-2 border-transparent hover:border-[#2d2d2d] transition-all rounded"
+                            >
+                              <span>Win95 Gray</span>
+                              {theme === 'theme-gray' && <div className="w-2 h-2 rounded-full bg-[#2d2d2d]" />}
+                            </button>
+                            <button
+                              onClick={() => { setTheme('theme-blue'); setIsSettingsOpen(false); }}
+                              className="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-gray-100 font-bold text-sm border-2 border-transparent hover:border-[#2d2d2d] transition-all rounded"
+                            >
+                              <span>Classic Teal</span>
+                              {theme === 'theme-blue' && <div className="w-2 h-2 rounded-full bg-[#2d2d2d]" />}
+                            </button>
+                            <button
+                              onClick={() => { setTheme('theme-black'); setIsSettingsOpen(false); }}
+                              className="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-gray-100 font-bold text-sm border-2 border-transparent hover:border-[#2d2d2d] transition-all rounded"
+                            >
+                              <span>Pitch Black</span>
+                              {theme === 'theme-black' && <div className="w-2 h-2 rounded-full bg-[#2d2d2d]" />}
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
 
                 {/* Scrollable Content */}
-                <div className="flex-1 overflow-y-auto p-6 md:p-10 relative bg-[#fcfcfc] custom-scrollbar h-full">
+                <div className="flex-1 overflow-y-auto p-6 md:p-10 relative bg-[var(--color-window)] custom-scrollbar h-full">
                   <div className="relative z-10 max-w-4xl mx-auto pb-10">
                     {activeTab === "profile" && <ProfileSection />}
                     {activeTab === "certificates" && <CertificatesSection />}
@@ -234,7 +279,7 @@ function ProfileSection() {
             <span className="font-black text-xl text-[#2d2d2d]">System</span>
             <span className="text-xs font-bold text-gray-400 font-mono px-2 py-0.5 bg-gray-100 border border-gray-300 rounded">12:00</span>
           </div>
-          <div className="bg-[#f2efe4] border-[3px] border-[#2d2d2d] p-6 rounded-lg shadow-[6px_6px_0_0_#2d2d2d] text-[#2d2d2d] mt-2 group-hover:bg-[#e0dcd0] transition-colors relative">
+          <div className="bg-[var(--color-window-hover)] border-[3px] border-[#2d2d2d] p-6 rounded-lg shadow-[6px_6px_0_0_#2d2d2d] text-[#2d2d2d] mt-2 group-hover:bg-[var(--color-window-hover)] transition-colors relative">
             <div className="text-xl md:text-2xl font-black mb-4 uppercase tracking-tight flex items-center gap-2">
               <span className="w-3 h-3 bg-[#2d2d2d] rounded-full border-2 border-white animate-pulse block" />
               System Initialization Complete
@@ -251,7 +296,7 @@ function ProfileSection() {
                 <h3 className="font-black mb-4 flex items-center gap-2 uppercase text-lg border-b-2 border-[#2d2d2d] pb-2"><Monitor size={20} strokeWidth={3} /> Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Next.js', 'Tailwind', 'TypeScript', 'Node.js', 'Figma'].map(tech => (
-                    <span key={tech} className="px-2 py-1 bg-[#e0dcd0] border-2 border-[#2d2d2d] text-xs font-black uppercase rounded shadow-[2px_2px_0_0_#2d2d2d]">{tech}</span>
+                    <span key={tech} className="px-2 py-1 bg-[var(--color-window-hover)] border-2 border-[#2d2d2d] text-xs font-black uppercase rounded shadow-[2px_2px_0_0_#2d2d2d]">{tech}</span>
                   ))}
                 </div>
               </div>
@@ -289,8 +334,8 @@ function CertificatesSection() {
           <div className="grid grid-cols-1 gap-6 mt-4">
             <div className="bg-[#FFFDF5] border-[3px] border-[#2d2d2d] rounded-lg overflow-hidden shadow-[6px_6px_0_0_#2d2d2d] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_#2d2d2d] transition-all flex flex-col md:flex-row relative">
               <div className="absolute top-0 right-0 p-2 bg-[#2d2d2d] text-[#F8F5E9] border-l-[3px] border-b-[3px] border-[#2d2d2d] font-black uppercase text-xs">Featured</div>
-              <div className="h-48 md:h-auto md:w-1/3 bg-[#f2efe4] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#2d2d2d] p-4 flex items-center justify-center relative overflow-hidden">
-                <div className="w-full h-full border-2 border-dashed border-[#2d2d2d] rounded bg-[#e0dcd0] flex items-center justify-center flex-col gap-2">
+              <div className="h-48 md:h-auto md:w-1/3 bg-[var(--color-window-hover)] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#2d2d2d] p-4 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full h-full border-2 border-dashed border-[#2d2d2d] rounded bg-[var(--color-window-hover)] flex items-center justify-center flex-col gap-2">
                   <FileBadge size={48} className="text-[#2d2d2d]" strokeWidth={2} />
                   <span className="font-black text-[#2d2d2d] text-xs uppercase tracking-widest opacity-80">Verified</span>
                 </div>
@@ -307,7 +352,7 @@ function CertificatesSection() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white border-[3px] border-[#2d2d2d] rounded-lg overflow-hidden shadow-[6px_6px_0_0_#2d2d2d] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_#2d2d2d] transition-all flex flex-col">
-                <div className="h-40 bg-[#f2efe4] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
+                <div className="h-40 bg-[var(--color-window-hover)] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
                   <FileBadge size={40} className="text-[#2d2d2d] opacity-80" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
@@ -321,7 +366,7 @@ function CertificatesSection() {
               </div>
 
               <div className="bg-white border-[3px] border-[#2d2d2d] rounded-lg overflow-hidden shadow-[6px_6px_0_0_#2d2d2d] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_#2d2d2d] transition-all flex flex-col">
-                <div className="h-40 bg-[#e0dcd0] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
+                <div className="h-40 bg-[var(--color-window-hover)] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
                   <FileBadge size={40} className="text-[#2d2d2d] opacity-80" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">

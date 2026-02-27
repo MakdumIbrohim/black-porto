@@ -1,13 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #76ce70; /* Green retro background */
+  --background: #76ce70;
+  /* Green retro background */
   --foreground: #2d2d2d;
+  --window-bg: #F8F5E9;
+  --window-bg-hover: #e0dcd0;
+}
+
+.theme-green {
+  /* Slack Green Classic */
+  --background: #76ce70;
+  --window-bg: #F8F5E9;
+  --window-bg-hover: #e0dcd0;
+  background-color: var(--background);
+}
+
+.theme-gray {
+  /* Windows 95 */
+  --background: #abaeb5;
+  --window-bg: #d4d0c8;
+  --window-bg-hover: #b8b3a8;
+  background-color: var(--background);
+}
+
+.theme-blue {
+  /* Classic Teal */
+  --background: #008080;
+  --window-bg: #e0dfd1;
+  --window-bg-hover: #c4c3b5;
+  background-color: var(--background);
+}
+
+.theme-black {
+  /* Pitch Black */
+  --background: #111111;
+  --window-bg: #222222;
+  --window-bg-hover: #333333;
+  --foreground: #F8F5E9;
+  /* Invert text for dark mode */
+  background-color: var(--background);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-window: var(--window-bg);
+  --color-window-hover: var(--window-bg-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -23,14 +62,17 @@ body {
 ::-webkit-scrollbar {
   width: 12px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f0eada;
   border-left: 2px solid #2d2d2d;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #2d2d2d;
   border: 2px solid #f0eada;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #000;
 }
