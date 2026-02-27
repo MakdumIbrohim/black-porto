@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Folder,
   MessageSquare,
@@ -22,7 +22,15 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("profile");
   const [easterEggActive, setEasterEggActive] = useState(false);
   const [keySequence, setKeySequence] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
   const draggableRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile(); // Check on mount
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Terminal Easter Egg Listener
   if (typeof window !== "undefined") {
@@ -60,8 +68,8 @@ export default function Home() {
 
       {/* Main Window Container */}
       <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden flex items-center justify-center">
-        <Draggable handle=".drag-handle" nodeRef={draggableRef} defaultPosition={{ x: 0, y: 0 }}>
-          <div ref={draggableRef} className="pointer-events-auto w-[90%] max-w-5xl h-[85vh] bg-[#F8F5E9] border-[3px] border-[#2d2d2d] rounded-xl shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative transition-shadow hover:shadow-[12px_12px_0_0_#2d2d2d] active:shadow-[4px_4px_0_0_#2d2d2d]">
+        <Draggable handle=".drag-handle" nodeRef={draggableRef} defaultPosition={{ x: 0, y: 0 }} disabled={isMobile}>
+          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-5xl h-full md:h-[85vh] bg-[#F8F5E9] md:border-[3px] border-[#2d2d2d] md:rounded-xl shadow-none md:shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative transition-shadow md:hover:shadow-[12px_12px_0_0_#2d2d2d] md:active:shadow-[4px_4px_0_0_#2d2d2d]">
             {/* Title Bar - Drag Handle */}
             <div className="drag-handle h-12 border-b-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
               <div className="flex gap-2">
@@ -74,48 +82,41 @@ export default function Home() {
             </div>
 
             {/* Content Area */}
-            <div className="flex flex-1 overflow-hidden">
+            <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
               {/* Sidebar */}
-              <div className="w-full max-w-[260px] border-r-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex flex-col shrink-0">
-                {/* Workspace Header */}
-                <div className="p-4 border-b-[3px] border-[#2d2d2d] flex items-center justify-between cursor-pointer hover:bg-[#e6e2d3] transition-colors">
-                  <span className="font-black text-xl text-[#2d2d2d] uppercase">MyTeam</span>
-                  <div className="bg-[#2d2d2d] text-white p-1 border-[2px] border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">
-                    <ChevronDown size={18} strokeWidth={4} />
-                  </div>
-                </div>
+              <div className="w-full md:max-w-[260px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex md:flex-col shrink-0 overflow-x-auto custom-scrollbar md:overflow-visible relative">
 
-                {/* Channels List */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-6">
-                  <div>
-                    <div className="flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
+                {/* Channels List (Horizontal on Mobile, Vertical on Desktop) */}
+                <div className="flex md:flex-col p-2 md:p-4 gap-2 md:gap-6 w-max mx-auto md:w-full md:mx-0 items-center md:items-stretch">
+                  <div className="flex flex-row md:flex-col md:w-full">
+                    <div className="hidden md:flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
                       <MessageSquare size={20} strokeWidth={3} />
                       <span className="uppercase tracking-wider">Channels</span>
                     </div>
-                    <div className="space-y-1 ml-2">
+                    <div className="flex flex-row md:flex-col gap-2 md:space-y-1 md:ml-2">
                       <button
                         onClick={() => setActiveTab("profile")}
-                        className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'profile' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'profile' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
                       >
                         <span className="text-xl leading-none opacity-50">#</span> profile
                       </button>
                       <button
                         onClick={() => setActiveTab("certificates")}
-                        className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'certificates' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'certificates' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
                       >
                         <span className="text-xl leading-none opacity-50">#</span> certificates
                       </button>
                       <button
                         onClick={() => setActiveTab("contact")}
-                        className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'contact' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                        className={`whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'contact' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
                       >
                         <span className="text-xl leading-none opacity-50">#</span> contact
                       </button>
                     </div>
                   </div>
 
-                  {/* Direct Messages Dummy */}
-                  <div>
+                  {/* Direct Messages Dummy - Hidden on mobile */}
+                  <div className="hidden md:block">
                     <div className="flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
                       <User size={20} strokeWidth={3} />
                       <span className="uppercase tracking-wider">Direct Messages</span>
@@ -133,8 +134,10 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Bottom User Area */}
-                <div className="p-4 border-t-[3px] border-[#2d2d2d] flex items-center gap-3 bg-[#e6e2d3]">
+                <div className="flex-1 hidden md:block" />
+
+                {/* Bottom User Area - Hidden on Mobile to save space */}
+                <div className="hidden md:flex p-4 border-t-[3px] border-[#2d2d2d] flex items-center gap-3 bg-[#e6e2d3]">
                   <div className="w-12 h-12 rounded bg-yellow-400 border-[3px] border-[#2d2d2d] shrink-0 overflow-hidden shadow-[2px_2px_0_0_#2d2d2d]">
                     <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=dev_portfolio`} alt="avatar" className="w-full h-full object-cover" />
                   </div>
@@ -148,7 +151,7 @@ export default function Home() {
               </div>
 
               {/* Main Content Pane */}
-              <div className="flex-1 flex flex-col bg-white">
+              <div className="flex-1 flex flex-col bg-white overflow-hidden min-h-0 relative">
                 {/* Header */}
                 <div className="h-16 border-b-[3px] border-[#2d2d2d] bg-white flex items-center justify-between px-6 shrink-0 relative">
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#2d2d2d]/10" />
@@ -169,7 +172,7 @@ export default function Home() {
                 </div>
 
                 {/* Scrollable Content */}
-                <div className="flex-1 overflow-y-auto p-6 md:p-10 relative bg-[#fcfcfc] custom-scrollbar">
+                <div className="flex-1 overflow-y-auto p-6 md:p-10 relative bg-[#fcfcfc] custom-scrollbar h-full">
                   <div className="relative z-10 max-w-4xl mx-auto pb-10">
                     {activeTab === "profile" && <ProfileSection />}
                     {activeTab === "certificates" && <CertificatesSection />}
