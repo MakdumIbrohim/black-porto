@@ -52,30 +52,30 @@ export default function Home() {
       </div>
 
       <div className="absolute bottom-20 right-16 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[#FFBD2E] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[#FFBD2E] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
+        <div className="w-16 h-12 bg-white border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-white before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
         <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-white px-2 py-0.5 border-2 border-[#2d2d2d] rotate-3">Assets.zip</span>
       </div>
 
       <div className="absolute top-40 right-10 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[#FF5F56] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[#FF5F56] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-white mt-2 bg-[#2d2d2d] px-2 py-0.5 border-2 border-[#2d2d2d] -rotate-6">SECRET</span>
+        <div className="w-16 h-12 bg-[#2d2d2d] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#F8F5E9] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[#2d2d2d] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[#F8F5E9] mt-2 bg-[#2d2d2d] px-2 py-0.5 border-2 border-[#2d2d2d] -rotate-6">SECRET</span>
       </div>
 
       <div className="absolute bottom-10 left-32 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-blue-400 border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-blue-400 before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
+        <div className="w-16 h-12 bg-[#e0dcd0] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[#e0dcd0] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
         <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-[#F8F5E9] px-2 py-0.5 border-2 border-[#2d2d2d] rotate-2">Client Work</span>
       </div>
 
       {/* Main Window Container */}
       <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden flex items-center justify-center">
         <Draggable handle=".drag-handle" nodeRef={draggableRef} defaultPosition={{ x: 0, y: 0 }} disabled={isMobile}>
-          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-5xl h-full md:h-[85vh] bg-[#F8F5E9] md:border-[3px] border-[#2d2d2d] md:rounded-xl shadow-none md:shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative transition-shadow md:hover:shadow-[12px_12px_0_0_#2d2d2d] md:active:shadow-[4px_4px_0_0_#2d2d2d]">
+          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-5xl h-full md:h-[85vh] bg-[#F8F5E9] md:border-[3px] border-[#2d2d2d] md:rounded-xl shadow-none md:shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative transition-shadow">
             {/* Title Bar - Drag Handle */}
             <div className="drag-handle h-12 border-b-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
               <div className="flex gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#FF5F56] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
-                <div className="w-4 h-4 rounded-full bg-[#FFBD2E] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
-                <div className="w-4 h-4 rounded-full bg-[#27C93F] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
+                <div className="w-4 h-4 rounded-full bg-[#2d2d2d] border-[3px] border-[#2d2d2d] hover:bg-[#666] cursor-pointer" />
+                <div className="w-4 h-4 rounded-full bg-[#e0dcd0] border-[3px] border-[#2d2d2d] hover:bg-[#666] cursor-pointer" />
+                <div className="w-4 h-4 rounded-full bg-white border-[3px] border-[#2d2d2d] hover:bg-[#666] cursor-pointer" />
               </div>
               <div className="font-black tracking-wide text-[#2d2d2d] uppercase text-sm">Slack_Portfolio.app</div>
               <div className="w-16" /> {/* Spacer for centering */}
@@ -138,13 +138,13 @@ export default function Home() {
 
                 {/* Bottom User Area - Hidden on Mobile to save space */}
                 <div className="hidden md:flex p-4 border-t-[3px] border-[#2d2d2d] flex items-center gap-3 bg-[#e6e2d3]">
-                  <div className="w-12 h-12 rounded bg-yellow-400 border-[3px] border-[#2d2d2d] shrink-0 overflow-hidden shadow-[2px_2px_0_0_#2d2d2d]">
+                  <div className="w-12 h-12 rounded bg-[#2d2d2d] border-[3px] border-[#2d2d2d] shrink-0 overflow-hidden shadow-[2px_2px_0_0_#2d2d2d] grayscale">
                     <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=dev_portfolio`} alt="avatar" className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="font-black text-sm uppercase truncate">Web Developer</div>
                     <div className="text-xs text-[#2d2d2d] font-bold flex items-center gap-1 mt-1">
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-[#2d2d2d]" /> Online
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#2d2d2d] border-2 border-[#F8F5E9]" /> Online
                     </div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function Home() {
                 <div className="p-4 border-t-[3px] border-[#2d2d2d] bg-white">
                   <div className="w-full h-12 border-[3px] border-[#2d2d2d] rounded flex items-center px-4 bg-[#f8f5e9] shadow-[2px_2px_0_0_#2d2d2d] focus-within:shadow-[4px_4px_0_0_#2d2d2d] transition-shadow">
                     <input type="text" placeholder={`Type 'sudo' for a surprise...`} className="flex-1 bg-transparent border-none outline-none font-bold text-[#2d2d2d] placeholder:text-[#2d2d2d]/50" />
-                    <button className="px-4 py-1.5 bg-[#2d2d2d] text-white font-black text-sm border-2 border-[#2d2d2d] rounded hover:bg-[#FF5F56] transition-colors shadow-[2px_2px_0_0_#2d2d2d]">Send</button>
+                    <button className="px-4 py-1.5 bg-[#2d2d2d] text-white font-black text-sm border-2 border-[#2d2d2d] rounded hover:bg-[#666] transition-colors shadow-[2px_2px_0_0_#2d2d2d]">Send</button>
                   </div>
                 </div>
               </div>
@@ -226,7 +226,7 @@ function ProfileSection() {
       </div>
 
       <div className="flex gap-4 group">
-        <div className="w-12 h-12 rounded bg-yellow-300 border-[3px] border-[#2d2d2d] shrink-0 mt-1 flex items-center justify-center shadow-[3px_3px_0_0_#2d2d2d] group-hover:scale-110 transition-transform">
+        <div className="w-12 h-12 rounded bg-white border-[3px] border-[#2d2d2d] shrink-0 mt-1 flex items-center justify-center shadow-[3px_3px_0_0_#2d2d2d] group-hover:scale-110 transition-transform">
           <User size={24} strokeWidth={3} className="text-[#2d2d2d]" />
         </div>
         <div className="flex-1">
@@ -234,16 +234,16 @@ function ProfileSection() {
             <span className="font-black text-xl text-[#2d2d2d]">System</span>
             <span className="text-xs font-bold text-gray-400 font-mono px-2 py-0.5 bg-gray-100 border border-gray-300 rounded">12:00</span>
           </div>
-          <div className="bg-[#EAE5FF] border-[3px] border-[#2d2d2d] p-6 rounded-lg shadow-[6px_6px_0_0_#2d2d2d] text-[#2d2d2d] mt-2 group-hover:bg-[#dfd8ff] transition-colors relative">
+          <div className="bg-[#f2efe4] border-[3px] border-[#2d2d2d] p-6 rounded-lg shadow-[6px_6px_0_0_#2d2d2d] text-[#2d2d2d] mt-2 group-hover:bg-[#e0dcd0] transition-colors relative">
             <div className="text-xl md:text-2xl font-black mb-4 uppercase tracking-tight flex items-center gap-2">
-              <span className="w-3 h-3 bg-red-500 rounded-full border-2 border-[#2d2d2d] animate-pulse block" />
+              <span className="w-3 h-3 bg-[#2d2d2d] rounded-full border-2 border-white animate-pulse block" />
               System Initialization Complete
             </div>
 
-            <p className="text-base md:text-lg font-bold leading-relaxed mb-6 font-mono text-gray-700 bg-black/5 p-4 rounded border-2 border-[#2d2d2d] shadow-[inner_2px_2px_0_rgba(0,0,0,0.1)]">
-              <span className="text-pink-600">{'>'}</span> Loading profile data...<br />
-              <span className="text-green-600">{'>'}</span> Status: <span className="text-green-600">SUCCESS</span><br />
-              <span className="text-blue-600">{'>'}</span> Welcome to my portfolio. I am a passionate frontend developer focused on building modern, aesthetic, and functional digital experiences.
+            <p className="text-base md:text-lg font-bold leading-relaxed mb-6 font-mono text-gray-700 bg-white p-4 rounded border-2 border-[#2d2d2d] shadow-[inner_2px_2px_0_rgba(0,0,0,0.1)]">
+              <span className="text-[#2d2d2d]">{'>'}</span> Loading profile data...<br />
+              <span className="text-[#2d2d2d]">{'>'}</span> Status: <span className="text-[#2d2d2d]">SUCCESS</span><br />
+              <span className="text-[#2d2d2d]">{'>'}</span> Welcome to my portfolio. I am a passionate frontend developer focused on building modern, aesthetic, and functional digital experiences.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
@@ -251,7 +251,7 @@ function ProfileSection() {
                 <h3 className="font-black mb-4 flex items-center gap-2 uppercase text-lg border-b-2 border-[#2d2d2d] pb-2"><Monitor size={20} strokeWidth={3} /> Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Next.js', 'Tailwind', 'TypeScript', 'Node.js', 'Figma'].map(tech => (
-                    <span key={tech} className="px-2 py-1 bg-yellow-200 border-2 border-[#2d2d2d] text-xs font-black uppercase rounded shadow-[2px_2px_0_0_#2d2d2d]">{tech}</span>
+                    <span key={tech} className="px-2 py-1 bg-[#e0dcd0] border-2 border-[#2d2d2d] text-xs font-black uppercase rounded shadow-[2px_2px_0_0_#2d2d2d]">{tech}</span>
                   ))}
                 </div>
               </div>
@@ -263,7 +263,7 @@ function ProfileSection() {
               </div>
             </div>
 
-            <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#FFBD2E] rounded-full border-[3px] border-[#2d2d2d] flex items-center justify-center shadow-[2px_2px_0_0_#2d2d2d] rotate-12 z-20">
+            <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#2d2d2d] rounded-full border-[3px] border-[#F8F5E9] flex items-center justify-center shadow-[2px_2px_0_0_#2d2d2d] rotate-12 z-20">
               <Star size={24} fill="white" className="text-white" />
             </div>
           </div>
@@ -277,7 +277,7 @@ function CertificatesSection() {
   return (
     <div className="space-y-8">
       <div className="flex gap-4 group">
-        <div className="w-12 h-12 rounded bg-blue-300 border-[3px] border-[#2d2d2d] shrink-0 mt-1 flex items-center justify-center shadow-[3px_3px_0_0_#2d2d2d] group-hover:scale-110 transition-transform">
+        <div className="w-12 h-12 rounded bg-white border-[3px] border-[#2d2d2d] shrink-0 mt-1 flex items-center justify-center shadow-[3px_3px_0_0_#2d2d2d] group-hover:scale-110 transition-transform">
           <FileBadge size={24} strokeWidth={3} className="text-[#2d2d2d]" />
         </div>
         <div className="flex-1">
@@ -287,30 +287,28 @@ function CertificatesSection() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 mt-4">
-            {/* Cert 1 */}
             <div className="bg-[#FFFDF5] border-[3px] border-[#2d2d2d] rounded-lg overflow-hidden shadow-[6px_6px_0_0_#2d2d2d] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_#2d2d2d] transition-all flex flex-col md:flex-row relative">
-              <div className="absolute top-0 right-0 p-2 bg-yellow-300 border-l-[3px] border-b-[3px] border-[#2d2d2d] font-black uppercase text-xs">Featured</div>
-              <div className="h-48 md:h-auto md:w-1/3 bg-[#E5FFE5] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#2d2d2d] p-4 flex items-center justify-center relative overflow-hidden">
-                <div className="w-full h-full border-2 border-dashed border-green-600 rounded bg-green-100 flex items-center justify-center flex-col gap-2">
-                  <FileBadge size={48} className="text-green-700" strokeWidth={2} />
-                  <span className="font-black text-green-800 text-xs uppercase tracking-widest opacity-60">Verified</span>
+              <div className="absolute top-0 right-0 p-2 bg-[#2d2d2d] text-[#F8F5E9] border-l-[3px] border-b-[3px] border-[#2d2d2d] font-black uppercase text-xs">Featured</div>
+              <div className="h-48 md:h-auto md:w-1/3 bg-[#f2efe4] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#2d2d2d] p-4 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full h-full border-2 border-dashed border-[#2d2d2d] rounded bg-[#e0dcd0] flex items-center justify-center flex-col gap-2">
+                  <FileBadge size={48} className="text-[#2d2d2d]" strokeWidth={2} />
+                  <span className="font-black text-[#2d2d2d] text-xs uppercase tracking-widest opacity-80">Verified</span>
                 </div>
               </div>
               <div className="p-6 md:p-8 flex-1 flex flex-col justify-center">
                 <div className="text-xs font-black text-gray-400 font-mono mb-2 bg-gray-100 inline-block px-2 py-1 rounded w-fit border border-gray-200">Dec 2025</div>
                 <h3 className="font-black text-2xl text-[#2d2d2d] leading-tight mb-2 uppercase">Advanced Frontend Architecture</h3>
                 <p className="text-sm font-bold text-gray-600 mb-6 font-mono">Issued by Tech Academy // ID: cert_x89f_2</p>
-                <button className="self-start py-2 px-6 bg-[#2d2d2d] text-white border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#FFBD2E] active:shadow-none hover:bg-[#FF5F56] transition-all">
+                <button className="self-start py-2 px-6 bg-[#2d2d2d] text-white border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#999] active:shadow-none hover:bg-black transition-all">
                   View Credential &rarr;
                 </button>
               </div>
             </div>
 
-            {/* Cert 2 & 3 in a grid row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white border-[3px] border-[#2d2d2d] rounded-lg overflow-hidden shadow-[6px_6px_0_0_#2d2d2d] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_#2d2d2d] transition-all flex flex-col">
-                <div className="h-40 bg-[#FFF5E5] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
-                  <FileBadge size={40} className="text-orange-400 opacity-60" />
+                <div className="h-40 bg-[#f2efe4] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
+                  <FileBadge size={40} className="text-[#2d2d2d] opacity-80" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="text-xs font-black text-gray-400 mb-1">Oct 2025</div>
@@ -323,8 +321,8 @@ function CertificatesSection() {
               </div>
 
               <div className="bg-white border-[3px] border-[#2d2d2d] rounded-lg overflow-hidden shadow-[6px_6px_0_0_#2d2d2d] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_#2d2d2d] transition-all flex flex-col">
-                <div className="h-40 bg-[#FFE5FF] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
-                  <FileBadge size={40} className="text-pink-400 opacity-60" />
+                <div className="h-40 bg-[#e0dcd0] border-b-[3px] border-[#2d2d2d] p-4 flex items-center justify-center">
+                  <FileBadge size={40} className="text-[#2d2d2d] opacity-80" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="text-xs font-black text-gray-400 mb-1">Jan 2024</div>
@@ -347,7 +345,7 @@ function ContactSection() {
   return (
     <div className="space-y-8">
       <div className="flex gap-4 group">
-        <div className="w-12 h-12 rounded bg-green-400 border-[3px] border-[#2d2d2d] shrink-0 mt-1 flex items-center justify-center shadow-[3px_3px_0_0_#2d2d2d] group-hover:scale-110 transition-transform">
+        <div className="w-12 h-12 rounded bg-white border-[3px] border-[#2d2d2d] shrink-0 mt-1 flex items-center justify-center shadow-[3px_3px_0_0_#2d2d2d] group-hover:scale-110 transition-transform">
           <Mail size={24} strokeWidth={3} className="text-[#2d2d2d]" />
         </div>
         <div className="flex-1 w-full max-w-2xl">
@@ -357,7 +355,7 @@ function ContactSection() {
           </div>
 
           <div className="bg-[#FFFDF5] border-[3px] border-[#2d2d2d] p-8 rounded-xl shadow-[8px_8px_0_0_#2d2d2d] mt-4 relative">
-            <div className="absolute top-0 right-0 w-16 h-16 border-l-[3px] border-b-[3px] border-[#2d2d2d] bg-[#FF5F56] rounded-tr-lg rounded-bl flex items-center justify-center">
+            <div className="absolute top-0 right-0 w-16 h-16 border-l-[3px] border-b-[3px] border-[#2d2d2d] bg-[#2d2d2d] rounded-tr-lg rounded-bl flex items-center justify-center">
               <Mail fill="white" className="text-white" size={28} />
             </div>
 
@@ -393,7 +391,7 @@ function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#2d2d2d] text-white font-black text-xl tracking-widest uppercase py-4 border-[3px] border-[#2d2d2d] rounded hover:bg-[#27C93F] hover:text-[#2d2d2d] hover:shadow-[4px_4px_0_0_#2d2d2d] active:shadow-none active:translate-y-[4px] active:translate-x-[4px] transition-all shadow-[6px_6px_0_0_#27C93F]"
+                className="w-full bg-[#2d2d2d] text-white font-black text-xl tracking-widest uppercase py-4 border-[3px] border-[#2d2d2d] rounded hover:bg-black hover:text-white hover:shadow-[4px_4px_0_0_#2d2d2d] active:shadow-none active:translate-y-[4px] active:translate-x-[4px] transition-all shadow-[6px_6px_0_0_#999]"
               >
                 [ SEND TRANSMISSION ]
               </button>
@@ -402,9 +400,9 @@ function ContactSection() {
             <div className="mt-12 pt-8 border-t-[3px] border-dashed border-[#2d2d2d] text-center">
               <div className="text-sm font-black uppercase mb-6 text-gray-400 tracking-wider">Alternative Protocols</div>
               <div className="flex flex-wrap justify-center gap-4">
-                <a href="#" className="px-6 py-2 bg-blue-100 border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">LinkedIn</a>
-                <a href="#" className="px-6 py-2 bg-gray-100 border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">GitHub</a>
-                <a href="#" className="px-6 py-2 bg-rose-100 border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">Dribbble</a>
+                <a href="#" className="px-6 py-2 bg-[#f2efe4] border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">LinkedIn</a>
+                <a href="#" className="px-6 py-2 bg-[#e0dcd0] border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">GitHub</a>
+                <a href="#" className="px-6 py-2 bg-white border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">Dribbble</a>
               </div>
             </div>
           </div>
