@@ -59,134 +59,136 @@ export default function Home() {
       </div>
 
       {/* Main Window Container */}
-      <Draggable handle=".drag-handle" bounds="parent" nodeRef={draggableRef} defaultPosition={{ x: 0, y: 0 }}>
-        <div ref={draggableRef} className="w-[95%] max-w-6xl h-[85vh] bg-[#F8F5E9] border-[3px] border-[#2d2d2d] rounded-xl shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative z-10 transition-shadow hover:shadow-[12px_12px_0_0_#2d2d2d] active:shadow-[4px_4px_0_0_#2d2d2d]" style={{ margin: "0 auto" }}>
-          {/* Title Bar - Drag Handle */}
-          <div className="drag-handle h-12 border-b-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
-            <div className="flex gap-2">
-              <div className="w-4 h-4 rounded-full bg-[#FF5F56] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
-              <div className="w-4 h-4 rounded-full bg-[#FFBD2E] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
-              <div className="w-4 h-4 rounded-full bg-[#27C93F] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
-            </div>
-            <div className="font-black tracking-wide text-[#2d2d2d] uppercase text-sm">Slack_Portfolio.app</div>
-            <div className="w-16" /> {/* Spacer for centering */}
-          </div>
-
-          {/* Content Area */}
-          <div className="flex flex-1 overflow-hidden">
-            {/* Sidebar */}
-            <div className="w-full max-w-[260px] border-r-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex flex-col shrink-0">
-              {/* Workspace Header */}
-              <div className="p-4 border-b-[3px] border-[#2d2d2d] flex items-center justify-between cursor-pointer hover:bg-[#e6e2d3] transition-colors">
-                <span className="font-black text-xl text-[#2d2d2d] uppercase">MyTeam</span>
-                <div className="bg-[#2d2d2d] text-white p-1 border-[2px] border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">
-                  <ChevronDown size={18} strokeWidth={4} />
-                </div>
+      <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden flex items-center justify-center">
+        <Draggable handle=".drag-handle" nodeRef={draggableRef} defaultPosition={{ x: 0, y: 0 }}>
+          <div ref={draggableRef} className="pointer-events-auto w-[90%] max-w-5xl h-[85vh] bg-[#F8F5E9] border-[3px] border-[#2d2d2d] rounded-xl shadow-[8px_8px_0_0_#2d2d2d] flex flex-col overflow-hidden relative transition-shadow hover:shadow-[12px_12px_0_0_#2d2d2d] active:shadow-[4px_4px_0_0_#2d2d2d]">
+            {/* Title Bar - Drag Handle */}
+            <div className="drag-handle h-12 border-b-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
+              <div className="flex gap-2">
+                <div className="w-4 h-4 rounded-full bg-[#FF5F56] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
+                <div className="w-4 h-4 rounded-full bg-[#FFBD2E] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
+                <div className="w-4 h-4 rounded-full bg-[#27C93F] border-[3px] border-[#2d2d2d] hover:brightness-110 cursor-pointer" />
               </div>
+              <div className="font-black tracking-wide text-[#2d2d2d] uppercase text-sm">Slack_Portfolio.app</div>
+              <div className="w-16" /> {/* Spacer for centering */}
+            </div>
 
-              {/* Channels List */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-6">
-                <div>
-                  <div className="flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
-                    <MessageSquare size={20} strokeWidth={3} />
-                    <span className="uppercase tracking-wider">Channels</span>
-                  </div>
-                  <div className="space-y-1 ml-2">
-                    <button
-                      onClick={() => setActiveTab("profile")}
-                      className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'profile' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
-                    >
-                      <span className="text-xl leading-none opacity-50">#</span> profile
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("certificates")}
-                      className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'certificates' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
-                    >
-                      <span className="text-xl leading-none opacity-50">#</span> certificates
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("contact")}
-                      className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'contact' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
-                    >
-                      <span className="text-xl leading-none opacity-50">#</span> contact
-                    </button>
+            {/* Content Area */}
+            <div className="flex flex-1 overflow-hidden">
+              {/* Sidebar */}
+              <div className="w-full max-w-[260px] border-r-[3px] border-[#2d2d2d] bg-[#F8F5E9] flex flex-col shrink-0">
+                {/* Workspace Header */}
+                <div className="p-4 border-b-[3px] border-[#2d2d2d] flex items-center justify-between cursor-pointer hover:bg-[#e6e2d3] transition-colors">
+                  <span className="font-black text-xl text-[#2d2d2d] uppercase">MyTeam</span>
+                  <div className="bg-[#2d2d2d] text-white p-1 border-[2px] border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">
+                    <ChevronDown size={18} strokeWidth={4} />
                   </div>
                 </div>
 
-                {/* Direct Messages Dummy */}
-                <div>
-                  <div className="flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
-                    <User size={20} strokeWidth={3} />
-                    <span className="uppercase tracking-wider">Direct Messages</span>
-                  </div>
-                  <div className="space-y-2 ml-2">
-                    <div className="flex items-center gap-2 px-3 py-1 opacity-50 grayscale">
-                      <div className="w-2 h-2 rounded-full bg-gray-400" />
-                      <span className="font-bold line-through">client_01</span>
+                {/* Channels List */}
+                <div className="flex-1 overflow-y-auto p-4 space-y-6">
+                  <div>
+                    <div className="flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
+                      <MessageSquare size={20} strokeWidth={3} />
+                      <span className="uppercase tracking-wider">Channels</span>
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-1 opacity-50 grayscale">
-                      <div className="w-2 h-2 rounded-full bg-gray-400" />
-                      <span className="font-bold line-through">recruiter_A</span>
+                    <div className="space-y-1 ml-2">
+                      <button
+                        onClick={() => setActiveTab("profile")}
+                        className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'profile' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                      >
+                        <span className="text-xl leading-none opacity-50">#</span> profile
+                      </button>
+                      <button
+                        onClick={() => setActiveTab("certificates")}
+                        className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'certificates' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                      >
+                        <span className="text-xl leading-none opacity-50">#</span> certificates
+                      </button>
+                      <button
+                        onClick={() => setActiveTab("contact")}
+                        className={`w-full flex items-center gap-2 px-3 py-2 border-2 border-transparent rounded font-bold transition-all ${activeTab === 'contact' ? 'bg-[#2d2d2d] text-white shadow-[2px_2px_0_0_#2d2d2d] border-[#2d2d2d]' : 'text-[#666] hover:bg-[#e0dcd0] hover:text-[#2d2d2d] hover:border-[#2d2d2d]'}`}
+                      >
+                        <span className="text-xl leading-none opacity-50">#</span> contact
+                      </button>
                     </div>
                   </div>
+
+                  {/* Direct Messages Dummy */}
+                  <div>
+                    <div className="flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
+                      <User size={20} strokeWidth={3} />
+                      <span className="uppercase tracking-wider">Direct Messages</span>
+                    </div>
+                    <div className="space-y-2 ml-2">
+                      <div className="flex items-center gap-2 px-3 py-1 opacity-50 grayscale">
+                        <div className="w-2 h-2 rounded-full bg-gray-400" />
+                        <span className="font-bold line-through">client_01</span>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-1 opacity-50 grayscale">
+                        <div className="w-2 h-2 rounded-full bg-gray-400" />
+                        <span className="font-bold line-through">recruiter_A</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom User Area */}
+                <div className="p-4 border-t-[3px] border-[#2d2d2d] flex items-center gap-3 bg-[#e6e2d3]">
+                  <div className="w-12 h-12 rounded bg-yellow-400 border-[3px] border-[#2d2d2d] shrink-0 overflow-hidden shadow-[2px_2px_0_0_#2d2d2d]">
+                    <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=dev_portfolio`} alt="avatar" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-black text-sm uppercase truncate">Web Developer</div>
+                    <div className="text-xs text-[#2d2d2d] font-bold flex items-center gap-1 mt-1">
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-[#2d2d2d]" /> Online
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Bottom User Area */}
-              <div className="p-4 border-t-[3px] border-[#2d2d2d] flex items-center gap-3 bg-[#e6e2d3]">
-                <div className="w-12 h-12 rounded bg-yellow-400 border-[3px] border-[#2d2d2d] shrink-0 overflow-hidden shadow-[2px_2px_0_0_#2d2d2d]">
-                  <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=dev_portfolio`} alt="avatar" className="w-full h-full object-cover" />
+              {/* Main Content Pane */}
+              <div className="flex-1 flex flex-col bg-white">
+                {/* Header */}
+                <div className="h-16 border-b-[3px] border-[#2d2d2d] bg-white flex items-center justify-between px-6 shrink-0 relative">
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#2d2d2d]/10" />
+                  <div>
+                    <h1 className="font-black text-2xl text-[#2d2d2d] flex items-center gap-2">
+                      <span className="text-gray-400">#</span> {activeTab}
+                    </h1>
+                  </div>
+                  <div className="flex items-center gap-4 text-sm font-bold text-[#2d2d2d]">
+                    <span className="hidden md:inline-block px-2 py-1 bg-yellow-100 border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">Members: [1]</span>
+                    <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
+                      <Search className="text-[#2d2d2d]" size={20} strokeWidth={3} />
+                    </button>
+                    <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
+                      <Settings className="text-[#2d2d2d]" size={20} strokeWidth={3} />
+                    </button>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-black text-sm uppercase truncate">Web Developer</div>
-                  <div className="text-xs text-[#2d2d2d] font-bold flex items-center gap-1 mt-1">
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-[#2d2d2d]" /> Online
+
+                {/* Scrollable Content */}
+                <div className="flex-1 overflow-y-auto p-6 md:p-10 relative bg-[#fcfcfc] custom-scrollbar">
+                  <div className="relative z-10 max-w-4xl mx-auto pb-10">
+                    {activeTab === "profile" && <ProfileSection />}
+                    {activeTab === "certificates" && <CertificatesSection />}
+                    {activeTab === "contact" && <ContactSection />}
+                  </div>
+                </div>
+
+                {/* Message Input Bottom Bar */}
+                <div className="p-4 border-t-[3px] border-[#2d2d2d] bg-white">
+                  <div className="w-full h-12 border-[3px] border-[#2d2d2d] rounded flex items-center px-4 bg-[#f8f5e9] shadow-[2px_2px_0_0_#2d2d2d] focus-within:shadow-[4px_4px_0_0_#2d2d2d] transition-shadow">
+                    <input type="text" placeholder={`Type 'sudo' for a surprise...`} className="flex-1 bg-transparent border-none outline-none font-bold text-[#2d2d2d] placeholder:text-[#2d2d2d]/50" />
+                    <button className="px-4 py-1.5 bg-[#2d2d2d] text-white font-black text-sm border-2 border-[#2d2d2d] rounded hover:bg-[#FF5F56] transition-colors shadow-[2px_2px_0_0_#2d2d2d]">Send</button>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Main Content Pane */}
-            <div className="flex-1 flex flex-col bg-white">
-              {/* Header */}
-              <div className="h-16 border-b-[3px] border-[#2d2d2d] bg-white flex items-center justify-between px-6 shrink-0 relative">
-                <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#2d2d2d]/10" />
-                <div>
-                  <h1 className="font-black text-2xl text-[#2d2d2d] flex items-center gap-2">
-                    <span className="text-gray-400">#</span> {activeTab}
-                  </h1>
-                </div>
-                <div className="flex items-center gap-4 text-sm font-bold text-[#2d2d2d]">
-                  <span className="hidden md:inline-block px-2 py-1 bg-yellow-100 border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">Members: [1]</span>
-                  <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
-                    <Search className="text-[#2d2d2d]" size={20} strokeWidth={3} />
-                  </button>
-                  <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
-                    <Settings className="text-[#2d2d2d]" size={20} strokeWidth={3} />
-                  </button>
-                </div>
-              </div>
-
-              {/* Scrollable Content */}
-              <div className="flex-1 overflow-y-auto p-6 md:p-10 relative bg-[#fcfcfc] custom-scrollbar">
-                <div className="relative z-10 max-w-4xl mx-auto pb-10">
-                  {activeTab === "profile" && <ProfileSection />}
-                  {activeTab === "certificates" && <CertificatesSection />}
-                  {activeTab === "contact" && <ContactSection />}
-                </div>
-              </div>
-
-              {/* Message Input Bottom Bar */}
-              <div className="p-4 border-t-[3px] border-[#2d2d2d] bg-white">
-                <div className="w-full h-12 border-[3px] border-[#2d2d2d] rounded flex items-center px-4 bg-[#f8f5e9] shadow-[2px_2px_0_0_#2d2d2d] focus-within:shadow-[4px_4px_0_0_#2d2d2d] transition-shadow">
-                  <input type="text" placeholder={`Type 'sudo' for a surprise...`} className="flex-1 bg-transparent border-none outline-none font-bold text-[#2d2d2d] placeholder:text-[#2d2d2d]/50" />
-                  <button className="px-4 py-1.5 bg-[#2d2d2d] text-white font-black text-sm border-2 border-[#2d2d2d] rounded hover:bg-[#FF5F56] transition-colors shadow-[2px_2px_0_0_#2d2d2d]">Send</button>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </Draggable>
+        </Draggable>
+      </div>
 
       {/* Easter Egg Modal */}
       {easterEggActive && (
