@@ -232,6 +232,41 @@
   transform: translate(2px, 2px);
 }
 
+/* Pitch Black Specific Overrides */
+.theme-black .members-badge {
+  background-color: #334155 !important;
+  border-color: #475569 !important;
+  color: #f1f5f9 !important;
+  box-shadow: 2px 2px 0 #0f172a !important;
+}
+
+.theme-black .tab-btn.tab-active {
+  background-color: #334155 !important;
+  color: #f8fafc !important;
+  border-color: #64748b !important;
+  box-shadow: 2px 2px 0 0 #0f172a !important;
+}
+
+.theme-black .tab-btn:not(.tab-active) {
+  color: #94a3b8 !important;
+}
+
+.theme-black .projects-section .group\/card {
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+.theme-black .projects-section .group\/card h3 {
+  color: #f8fafc !important;
+}
+
+.theme-black .projects-section .group\/card p {
+  color: #94a3b8 !important;
+}
+
+.theme-black .sidebar-area .tab-btn span {
+  color: inherit !important;
+}
 
 @theme inline {
   --color-background: var(--background);

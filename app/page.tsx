@@ -137,7 +137,7 @@ export default function Home() {
 
                   {/* Direct Messages Dummy - Hidden on mobile */}
                   <div className="hidden md:block">
-                    <div className="flex items-center gap-2 text-[#2d2d2d] font-black mb-3">
+                    <div className="flex items-center gap-2 text-[var(--window-text)] font-black mb-3">
                       <User size={20} strokeWidth={3} />
                       <span className="uppercase tracking-wider">Direct Messages</span>
                     </div>
@@ -176,21 +176,21 @@ export default function Home() {
                 <div className="content-header h-16 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex items-center justify-between px-6 shrink-0 relative">
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#2d2d2d]/10" />
                   <div>
-                    <h1 className="font-black text-2xl text-[#2d2d2d] flex items-center gap-2">
-                      <span className="text-gray-400">#</span> {activeTab}
+                    <h1 className="font-black text-2xl text-[var(--window-text)] flex items-center gap-2">
+                      <span className="opacity-40">#</span> {activeTab}
                     </h1>
                   </div>
                   <div className="flex items-center gap-4 text-sm font-bold text-[#2d2d2d]">
                     <span className="members-badge hidden md:inline-block px-2 py-1 bg-yellow-100 border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">Members: [1]</span>
-                    <button className="header-icon-btn p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
-                      <Search className="text-[#2d2d2d]" size={20} strokeWidth={3} />
+                    <button className="header-icon-btn p-1 hover:bg-[var(--window-bg-hover)] border-2 border-transparent hover:border-[var(--window-border)] rounded transition-all">
+                      <Search className="text-[var(--window-text)]" size={20} strokeWidth={3} />
                     </button>
                     <div className="relative">
                       <button
                         onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                        className={`header-icon-btn p-1 border-2 rounded transition-all ${isSettingsOpen ? 'bg-gray-100 border-[#2d2d2d]' : 'hover:bg-gray-100 border-transparent hover:border-[#2d2d2d]'}`}
+                        className={`header-icon-btn p-1 border-2 rounded transition-all ${isSettingsOpen ? 'bg-[var(--window-bg-hover)] border-[var(--window-border)]' : 'hover:bg-[var(--window-bg-hover)] border-transparent hover:border-[var(--window-border)]'}`}
                       >
-                        <Settings className="text-[#2d2d2d]" size={20} strokeWidth={3} />
+                        <Settings className="text-[var(--window-text)]" size={20} strokeWidth={3} />
                       </button>
 
                       {isSettingsOpen && (
@@ -470,18 +470,18 @@ function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#2d2d2d] text-white font-black text-xl tracking-widest uppercase py-4 border-[3px] border-[#2d2d2d] rounded hover:bg-black hover:text-white hover:shadow-[4px_4px_0_0_#2d2d2d] active:shadow-none active:translate-y-[4px] active:translate-x-[4px] transition-all shadow-[6px_6px_0_0_#999]"
+                className="w-full bg-[var(--window-border)] text-[var(--window-bg)] font-black text-xl tracking-widest uppercase py-4 border-[3px] border-[var(--window-border)] rounded hover:opacity-90 active:shadow-none active:translate-y-[4px] active:translate-x-[4px] transition-all shadow-[6px_6px_0_0_var(--window-bg-hover)]"
               >
                 [ SEND TRANSMISSION ]
               </button>
             </form>
 
-            <div className="mt-12 pt-8 border-t-[3px] border-dashed border-[#2d2d2d] text-center">
-              <div className="text-sm font-black uppercase mb-6 text-gray-400 tracking-wider">Alternative Protocols</div>
+            <div className="mt-12 pt-8 border-t-[3px] border-dashed border-[var(--window-border)] text-center opacity-70">
+              <div className="text-sm font-black uppercase mb-6 text-[var(--window-text)] tracking-wider">Alternative Protocols</div>
               <div className="flex flex-wrap justify-center gap-4">
-                <a href="#" className="px-6 py-2 bg-[#f2efe4] border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">LinkedIn</a>
-                <a href="#" className="px-6 py-2 bg-[#e0dcd0] border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">GitHub</a>
-                <a href="#" className="px-6 py-2 bg-white border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">Dribbble</a>
+                <a href="#" className="px-6 py-2 bg-[var(--window-bg-hover)] border-[3px] border-[var(--window-border)] font-black text-sm uppercase shadow-[3px_3px_0_0_var(--window-border)] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_var(--window-border)] transition-all rounded text-[var(--window-text)]">LinkedIn</a>
+                <a href="#" className="px-6 py-2 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] font-black text-sm uppercase shadow-[3px_3px_0_0_var(--window-border)] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_var(--window-border)] transition-all rounded text-[var(--window-text)]">GitHub</a>
+                <a href="#" className="px-6 py-2 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] font-black text-sm uppercase shadow-[3px_3px_0_0_var(--window-border)] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_var(--window-border)] transition-all rounded text-[var(--window-text)]">Dribbble</a>
               </div>
             </div>
           </div>
