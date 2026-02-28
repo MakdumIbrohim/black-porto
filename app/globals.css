@@ -202,6 +202,21 @@
   transform: translate(2px, 2px);
 }
 
+.theme-rainbow .tab-btn-projects {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 2px solid #111111 !important;
+  box-shadow: 3px 3px 0 0 #111111 !important;
+  font-weight: 900;
+}
+
+.theme-rainbow .tab-btn-projects.tab-active,
+.theme-rainbow .tab-btn-projects:hover {
+  background: #00a892 !important;
+  box-shadow: 1px 1px 0 0 #111111 !important;
+  transform: translate(2px, 2px);
+}
+
 .theme-rainbow .tab-btn-contact {
   background: #FF2D2D !important;
   color: #fff !important;
@@ -227,6 +242,26 @@
   --color-window-border: var(--window-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Project Cards in Carnival -> RETRO BLOCKS */
+.theme-rainbow .projects-section .grid>div:nth-child(1) .h-32 {
+  background-color: #2B9BF4 !important;
+  /* Blue */
+}
+
+.theme-rainbow .projects-section .grid>div:nth-child(2) .h-32 {
+  background-color: #F6EC2E !important;
+  /* Yellow */
+}
+
+.theme-rainbow .projects-section .grid>div:nth-child(3) .h-32 {
+  background-color: #FF2D2D !important;
+  /* Red */
+}
+
+.theme-rainbow .projects-section .group\/card {
+  background-color: #ffffff !important;
 }
 
 body {

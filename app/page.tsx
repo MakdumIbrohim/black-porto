@@ -112,6 +112,13 @@ export default function Home() {
                         <span className="text-xl leading-none opacity-50">#</span> profile
                       </button>
                       <button
+                        onClick={() => setActiveTab("projects")}
+                        data-tab="projects"
+                        className={`tab-btn tab-btn-projects whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 rounded font-bold transition-all ${activeTab === 'projects' ? 'tab-active shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] hover:border-[var(--window-border)]'}`}
+                      >
+                        <span className="text-xl leading-none opacity-50">#</span> projects
+                      </button>
+                      <button
                         onClick={() => setActiveTab("certificates")}
                         data-tab="certificates"
                         className={`tab-btn tab-btn-certificates whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 rounded font-bold transition-all ${activeTab === 'certificates' ? 'tab-active shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] hover:border-[var(--window-border)]'}`}
@@ -246,6 +253,7 @@ export default function Home() {
                 <div className="flex-1 overflow-y-auto p-6 md:p-10 relative bg-[var(--window-bg)] custom-scrollbar h-full">
                   <div className="relative z-10 max-w-4xl mx-auto pb-10">
                     {activeTab === "profile" && <ProfileSection />}
+                    {activeTab === "projects" && <ProjectsSection />}
                     {activeTab === "certificates" && <CertificatesSection />}
                     {activeTab === "contact" && <ContactSection />}
                   </div>
@@ -476,6 +484,75 @@ function ContactSection() {
                 <a href="#" className="px-6 py-2 bg-white border-[3px] border-[#2d2d2d] font-black text-sm uppercase shadow-[3px_3px_0_0_#2d2d2d] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#2d2d2d] transition-all rounded">Dribbble</a>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectsSection() {
+  const projects = [
+    {
+      title: "Project E-Commerce",
+      description: "A full-featured online store with payment integration and admin dashboard.",
+      tech: ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
+      link: "#",
+      color: "bg-[#3b82f6]"
+    },
+    {
+      title: "AI Chat Assistant",
+      description: "A real-time chat application powered by OpenAI with message persistence.",
+      tech: ["React", "Node.js", "OpenAI API", "Socket.io"],
+      link: "#",
+      color: "bg-[#eab308]"
+    },
+    {
+      title: "Task Management Tool",
+      description: "Collaborative platform for team projects with kanban boards and analytics.",
+      tech: ["TypeScript", "Tailwind", "Supabase", "React Query"],
+      link: "#",
+      color: "bg-[#00C9AE]"
+    }
+  ];
+
+  return (
+    <div className="projects-section space-y-8">
+      <div className="flex gap-4 group">
+        <div className="w-12 h-12 rounded bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] shrink-0 mt-1 flex items-center justify-center shadow-[3px_3px_0_0_var(--window-border)] group-hover:scale-110 transition-transform">
+          <Folder size={24} strokeWidth={3} className="text-[var(--window-text)]" />
+        </div>
+        <div className="flex-1">
+          <div className="flex items-baseline gap-2 mb-1">
+            <span className="font-black text-xl text-[var(--window-text)]">System</span>
+            <span className="text-xs font-bold text-[var(--window-text)] opacity-60 font-mono px-2 py-0.5 bg-[var(--window-bg-hover)] border border-[var(--window-border)] rounded">12:02</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            {projects.map((project, index) => (
+              <div key={index} className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0_0_var(--window-border)] transition-all flex flex-col group/card">
+                <div className={`h-32 ${project.color} border-b-[3px] border-[var(--window-border)] p-4 flex items-center justify-center relative overflow-hidden group-hover/card:brightness-110 transition-all`}>
+                  <Folder size={48} className="text-white opacity-40" strokeWidth={2} />
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover/card:opacity-100 transition-opacity" />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="font-black text-xl text-[var(--window-text)] leading-tight mb-2 uppercase tracking-wide group-hover/card:text-[var(--window-border)] transition-colors">{project.title}</h3>
+                  <p className="text-sm font-bold text-[var(--window-text)] opacity-70 mb-6 flex-1">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map(t => (
+                      <span key={t} className="text-[10px] font-black uppercase px-2 py-0.5 bg-[var(--window-bg-hover)] border-2 border-[var(--window-border)] text-[var(--window-text)] rounded shadow-[2px_2px_0_0_var(--window-border)] tracking-tighter">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <button className="w-full py-2 bg-[var(--window-border)] text-[var(--window-bg)] border-[3px] border-[var(--window-border)] font-black text-sm uppercase shadow-[3px_3px_0_0_var(--window-border)] hover:opacity-90 active:translate-y-[3px] active:translate-x-[3px] active:shadow-none transition-all">
+                    View Project &rarr;
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
