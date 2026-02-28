@@ -155,7 +155,7 @@ export default function Home() {
                   <div className="flex-1 min-w-0">
                     <div className="font-black text-sm uppercase truncate text-[var(--window-text)] group-hover/user:translate-x-1 transition-transform">Web Developer</div>
                     <div className="text-xs text-[var(--window-text)] font-bold flex items-center gap-1 mt-1 opacity-70 group-hover/user:opacity-100 transition-opacity">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[var(--window-border)] border-2 border-[var(--window-bg)] animate-pulse" /> Online
+                      <div className="w-2.5 h-2.5 rounded-full bg-[var(--status-online)] border-2 border-[var(--window-bg)] animate-pulse" /> Online
                     </div>
                   </div>
                 </div>

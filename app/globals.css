@@ -7,6 +7,7 @@
   --window-bg-hover: #e0dcd0;
   --window-text: #2d2d2d;
   --window-border: #2d2d2d;
+  --status-online: #2d2d2d;
 }
 
 .theme-green {
@@ -16,6 +17,7 @@
   --window-bg-hover: #f0e9d2;
   --window-text: #2d2d2d;
   --window-border: #2d2d2d;
+  --status-online: #2d2d2d;
   background-color: var(--background);
 }
 
@@ -26,6 +28,7 @@
   --window-bg-hover: #b0bac4;
   --window-text: #1a1a2e;
   --window-border: #1a1a2e;
+  --status-online: #1a1a2e;
   background-color: var(--background);
 }
 
@@ -36,6 +39,7 @@
   --window-bg-hover: #b2d8d8;
   --window-text: #003333;
   --window-border: #005555;
+  --status-online: #005555;
   background-color: var(--background);
 }
 
@@ -48,6 +52,7 @@
   --window-border: #475569;
   --foreground: #e2e8f0;
   --folder-bg: #ffffff;
+  --status-online: #475569;
   background-color: var(--background);
 }
 
@@ -58,6 +63,7 @@
   --window-bg-hover: #F6EC2E;
   --window-text: #111111;
   --window-border: #111111;
+  --status-online: #22c55e;
   background-color: #f0f0f0;
 }
 
