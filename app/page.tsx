@@ -39,23 +39,23 @@ export default function Home() {
     <main className={`min-h-screen w-full relative p-4 md:p-12 font-sans overflow-hidden ${theme} transition-colors duration-500`}>
       {/* Background decoration - Fake Folders (Hidden on mobile) */}
       <div className="absolute top-10 left-10 hidden md:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <div className="w-16 h-12 bg-[var(--folder-bg,var(--window-bg))] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--folder-bg,var(--window-bg))] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
         <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] -rotate-2">Projects</span>
       </div>
 
       <div className="absolute bottom-20 right-16 hidden md:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] rotate-3">Assets.zip</span>
+        <div className="w-16 h-12 bg-[var(--folder-bg,var(--window-bg))] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--folder-bg,var(--window-bg))] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-1 border-2 border-[var(--window-border)] rotate-3">Assets.zip</span>
       </div>
 
       <div className="absolute top-40 right-10 hidden lg:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[var(--window-bg-hover)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg-hover)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] -rotate-6">SECRET</span>
+        <div className="w-16 h-12 bg-[var(--folder-bg,var(--window-bg-hover))] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--folder-bg,var(--window-bg-hover))] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-1 border-2 border-[var(--window-border)] -rotate-6">SECRET</span>
       </div>
 
       <div className="absolute bottom-10 left-32 hidden lg:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[var(--window-bg-hover)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg-hover)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] rotate-2">Client Work</span>
+        <div className="w-16 h-12 bg-[var(--folder-bg,var(--window-bg-hover))] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--folder-bg,var(--window-bg-hover))] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-1 border-2 border-[var(--window-border)] rotate-2">Client Work</span>
       </div>
 
       {/* Main Window Container */}
@@ -504,7 +504,7 @@ function ProjectsSection() {
             {projects.map((project, index) => (
               <div key={index} className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--window-border)] md:shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0_0_var(--window-border)] transition-all flex flex-col group/card">
                 <div className={`h-32 ${project.color} border-b-[3px] border-[var(--window-border)] p-4 flex items-center justify-center relative overflow-hidden group-hover/card:brightness-110 transition-all`}>
-                  <Folder size={48} className="text-white opacity-40" strokeWidth={2} />
+                  <Folder size={48} className="text-white opacity-80" strokeWidth={2} />
                   <div className="absolute inset-0 bg-white/5 opacity-0 group-hover/card:opacity-100 transition-opacity" />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">

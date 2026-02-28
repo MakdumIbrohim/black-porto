@@ -44,9 +44,10 @@
   --background: #0f172a;
   --window-bg: #1e293b;
   --window-bg-hover: #334155;
-  --window-text: #e2e8f0;
+  --window-text: #ffffff;
   --window-border: #475569;
   --foreground: #e2e8f0;
+  --folder-bg: #ffffff;
   background-color: var(--background);
 }
 
