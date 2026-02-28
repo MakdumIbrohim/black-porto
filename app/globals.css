@@ -84,6 +84,7 @@
 }
 
 .theme-rainbow .content-header h1,
+.theme-rainbow .content-header h1 span,
 .theme-rainbow .content-header button svg {
   color: #ffffff !important;
 }
