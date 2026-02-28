@@ -94,7 +94,7 @@ export default function Home() {
             {/* Content Area */}
             <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
               {/* Sidebar */}
-              <div className="w-full md:max-w-[260px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex md:flex-col shrink-0 overflow-x-auto custom-scrollbar md:overflow-visible relative">
+              <div className="sidebar-area w-full md:max-w-[260px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex md:flex-col shrink-0 overflow-x-auto custom-scrollbar md:overflow-visible relative">
 
                 {/* Channels List (Horizontal on Mobile, Vertical on Desktop) */}
                 <div className="flex md:flex-col p-2 md:p-4 gap-2 md:gap-6 w-max mx-auto md:w-full md:mx-0 items-center md:items-stretch">
@@ -150,7 +150,7 @@ export default function Home() {
                 <div className="flex-1 hidden md:block" />
 
                 {/* Bottom User Area - Hidden on Mobile to save space */}
-                <div className="hidden md:flex p-4 border-t-[3px] border-[#2d2d2d] flex items-center gap-3 bg-[#e6e2d3]">
+                <div className="user-area hidden md:flex p-4 border-t-[3px] border-[var(--window-border)] flex items-center gap-3 bg-[var(--window-bg-hover)]">
                   <div className="w-12 h-12 rounded bg-[#2d2d2d] border-[3px] border-[#2d2d2d] shrink-0 overflow-hidden shadow-[2px_2px_0_0_#2d2d2d] grayscale">
                     <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=dev_portfolio`} alt="avatar" className="w-full h-full object-cover" />
                   </div>
@@ -164,9 +164,9 @@ export default function Home() {
               </div>
 
               {/* Main Content Pane */}
-              <div className="flex-1 flex flex-col bg-[var(--window-bg)] overflow-hidden min-h-0 relative">
+              <div className="content-pane flex-1 flex flex-col bg-[var(--window-bg)] overflow-hidden min-h-0 relative">
                 {/* Header */}
-                <div className="h-16 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex items-center justify-between px-6 shrink-0 relative">
+                <div className="content-header h-16 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex items-center justify-between px-6 shrink-0 relative">
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#2d2d2d]/10" />
                   <div>
                     <h1 className="font-black text-2xl text-[#2d2d2d] flex items-center gap-2">
@@ -252,7 +252,7 @@ export default function Home() {
                 </div>
 
                 {/* Message Input Bottom Bar */}
-                <div className="p-4 border-t-[3px] border-[var(--window-border)] bg-[var(--window-bg)]">
+                <div className="input-bar p-4 border-t-[3px] border-[var(--window-border)] bg-[var(--window-bg)]">
                   <div className="w-full h-12 border-[3px] border-[var(--window-border)] rounded flex items-center px-4 bg-[var(--window-bg-hover)] shadow-[2px_2px_0_0_var(--window-border)] focus-within:shadow-[4px_4px_0_0_var(--window-border)] transition-shadow">
                     <input type="text" placeholder={`Type 'sudo' for a surprise...`} className="flex-1 bg-transparent border-none outline-none font-bold text-[var(--window-text)] placeholder:text-[var(--window-text)] opacity-50" />
                     <button className="px-4 py-1.5 bg-[var(--window-border)] text-[var(--window-bg)] font-black text-sm border-2 border-[var(--window-border)] rounded hover:opacity-80 transition-opacity shadow-[2px_2px_0_0_var(--window-border)]">Send</button>

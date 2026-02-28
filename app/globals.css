@@ -51,62 +51,128 @@
 }
 
 .theme-rainbow {
-  /* 🌈 Carnival - each element gets its own bold color */
-  --background: #e8e8e8;
+  /* Carnival Retro - 5 colors: white, yellow, blue, red, teal */
+  --background: #f0f0f0;
   --window-bg: #ffffff;
-  --window-bg-hover: #f5f5f5;
-  --window-text: #1a1a1a;
-  --window-border: #1a1a1a;
-  background-color: #e8e8e8;
+  --window-bg-hover: #F6EC2E;
+  --window-text: #111111;
+  --window-border: #111111;
+  background-color: #f0f0f0;
 }
 
-/* === CARNIVAL: Sidebar nav buttons - each a bold unique color === */
+/* Title bar -> YELLOW */
+.theme-rainbow .drag-handle {
+  background-color: #F6EC2E !important;
+  border-bottom: 3px solid #111111 !important;
+  color: #111111 !important;
+}
+
+/* Sidebar -> TEAL */
+.theme-rainbow .sidebar-area {
+  background-color: #00C9AE !important;
+  border-right-color: #111111 !important;
+}
+
+.theme-rainbow .sidebar-area * {
+  color: #111111 !important;
+}
+
+/* Content header -> BLUE */
+.theme-rainbow .content-header {
+  background-color: #2B9BF4 !important;
+  border-bottom-color: #111111 !important;
+}
+
+.theme-rainbow .content-header * {
+  color: #ffffff !important;
+}
+
+/* Members badge -> YELLOW with black border */
+.theme-rainbow .content-header span {
+  background-color: #F6EC2E !important;
+  border-color: #111111 !important;
+  color: #111111 !important;
+  box-shadow: 2px 2px 0 #111111 !important;
+}
+
+/* Content area -> WHITE */
+.theme-rainbow .content-pane {
+  background-color: #ffffff !important;
+}
+
+/* User area -> RED */
+.theme-rainbow .user-area {
+  background-color: #FF2D2D !important;
+  border-top-color: #111111 !important;
+}
+
+.theme-rainbow .user-area * {
+  color: #ffffff !important;
+}
+
+/* Input bar -> YELLOW, Send button -> RED */
+.theme-rainbow .input-bar {
+  background-color: #F6EC2E !important;
+  border-top-color: #111111 !important;
+}
+
+.theme-rainbow .input-bar>div {
+  background-color: #ffffff !important;
+  border-color: #111111 !important;
+}
+
+.theme-rainbow .input-bar button {
+  background-color: #FF2D2D !important;
+  border-color: #111111 !important;
+  color: #ffffff !important;
+  box-shadow: 3px 3px 0 #111111 !important;
+}
+
+/* Nav buttons */
 .theme-rainbow .tab-btn-profile {
-  background: #4299e1 !important;
-  color: white !important;
-  border: 2px solid #1a1a1a !important;
-  box-shadow: 3px 3px 0 0 #1a1a1a !important;
+  background: #2B9BF4 !important;
+  color: #fff !important;
+  border: 2px solid #111111 !important;
+  box-shadow: 3px 3px 0 0 #111111 !important;
   font-weight: 900;
 }
 
 .theme-rainbow .tab-btn-profile.tab-active,
 .theme-rainbow .tab-btn-profile:hover {
-  background: #2b6cb0 !important;
-  box-shadow: 1px 1px 0 0 #1a1a1a !important;
+  background: #1a7bd6 !important;
+  box-shadow: 1px 1px 0 0 #111111 !important;
   transform: translate(2px, 2px);
 }
 
 .theme-rainbow .tab-btn-certificates {
-  background: #ecc94b !important;
-  color: #1a1a1a !important;
-  border: 2px solid #1a1a1a !important;
-  box-shadow: 3px 3px 0 0 #1a1a1a !important;
+  background: #F6EC2E !important;
+  color: #111 !important;
+  border: 2px solid #111111 !important;
+  box-shadow: 3px 3px 0 0 #111111 !important;
   font-weight: 900;
 }
 
 .theme-rainbow .tab-btn-certificates.tab-active,
 .theme-rainbow .tab-btn-certificates:hover {
-  background: #d69e2e !important;
-  box-shadow: 1px 1px 0 0 #1a1a1a !important;
+  background: #e0d600 !important;
+  box-shadow: 1px 1px 0 0 #111111 !important;
   transform: translate(2px, 2px);
 }
 
 .theme-rainbow .tab-btn-contact {
-  background: #fc8181 !important;
-  color: #1a1a1a !important;
-  border: 2px solid #1a1a1a !important;
-  box-shadow: 3px 3px 0 0 #1a1a1a !important;
+  background: #FF2D2D !important;
+  color: #fff !important;
+  border: 2px solid #111111 !important;
+  box-shadow: 3px 3px 0 0 #111111 !important;
   font-weight: 900;
 }
 
 .theme-rainbow .tab-btn-contact.tab-active,
 .theme-rainbow .tab-btn-contact:hover {
-  background: #e53e3e !important;
-  color: white !important;
-  box-shadow: 1px 1px 0 0 #1a1a1a !important;
+  background: #d91c1c !important;
+  box-shadow: 1px 1px 0 0 #111111 !important;
   transform: translate(2px, 2px);
 }
-
 
 
 @theme inline {
