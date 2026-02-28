@@ -222,11 +222,10 @@ export default function Home() {
                             </button>
                             <button
                               onClick={() => { setTheme('theme-rainbow'); setIsSettingsOpen(false); }}
-                              className="w-full text-left px-3 py-2 flex items-center justify-between font-bold text-sm border-2 border-transparent transition-all rounded"
-                              style={{ background: 'linear-gradient(90deg, #ffeaa7, #fab1d3, #a8edea, #b8f0a6)', color: '#1a1a2e', borderColor: theme === 'theme-rainbow' ? '#e53935' : 'transparent' }}
+                              className="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-[var(--window-bg-hover)] font-bold text-sm border-2 border-transparent hover:border-[var(--window-border)] transition-all rounded"
                             >
-                              <span>🌈 Carnival</span>
-                              {theme === 'theme-rainbow' && <div className="w-2 h-2 rounded-full bg-[#e53935]" />}
+                              <span>Carnival</span>
+                              {theme === 'theme-rainbow' && <div className="w-2 h-2 rounded-full bg-[var(--window-text)]" />}
                             </button>
                             <div className="pt-2 mt-1 border-t-2 border-dashed border-[#2d2d2d]">
                               <button
@@ -306,7 +305,7 @@ function ProfileSection() {
             <span className="font-black text-xl text-[var(--window-text)]">System</span>
             <span className="text-xs font-bold text-[var(--window-text)] opacity-60 font-mono px-2 py-0.5 bg-[var(--window-bg-hover)] border border-[var(--window-border)] rounded">12:00</span>
           </div>
-          <div className="bg-[var(--window-bg-hover)] border-[3px] border-[var(--window-border)] p-6 rounded-lg shadow-[6px_6px_0_0_var(--window-border)] text-[var(--window-text)] mt-2 transition-colors relative card-yellow">
+          <div className="bg-[var(--window-bg-hover)] border-[3px] border-[var(--window-border)] p-6 rounded-lg shadow-[6px_6px_0_0_var(--window-border)] text-[var(--window-text)] mt-2 transition-colors relative">
             <div className="text-xl md:text-2xl font-black mb-4 uppercase tracking-tight flex items-center gap-2">
               <span className="w-3 h-3 bg-[var(--window-border)] rounded-full border-2 border-[var(--window-bg)] animate-pulse block" />
               System Initialization Complete
@@ -319,7 +318,7 @@ function ProfileSection() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] p-5 rounded z-10 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] shadow-[4px_4px_0_0_var(--window-border)] transition-all cursor-crosshair card-blue">
+              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] p-5 rounded z-10 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] shadow-[4px_4px_0_0_var(--window-border)] transition-all cursor-crosshair">
                 <h3 className="font-black mb-4 flex items-center gap-2 uppercase text-lg border-b-2 border-[var(--window-border)] pb-2 text-[var(--window-text)]"><Monitor size={20} strokeWidth={3} /> Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Next.js', 'Tailwind', 'TypeScript', 'Node.js', 'Figma'].map(tech => (
@@ -327,7 +326,7 @@ function ProfileSection() {
                   ))}
                 </div>
               </div>
-              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] p-5 rounded z-10 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] shadow-[4px_4px_0_0_var(--window-border)] transition-all cursor-text card-green">
+              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] p-5 rounded z-10 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] shadow-[4px_4px_0_0_var(--window-border)] transition-all cursor-text">
                 <h3 className="font-black mb-4 flex items-center gap-2 uppercase text-lg border-b-2 border-[var(--window-border)] pb-2 text-[var(--window-text)]"><Plus size={20} strokeWidth={3} /> Interests</h3>
                 <p className="text-sm font-bold text-[var(--window-text)] opacity-80 leading-relaxed">
                   UI/UX Design, Neo-brutalism, Web Accessibility, Performance Optimization, and Creative Error Pages.
