@@ -83,7 +83,8 @@
   border-bottom-color: #111111 !important;
 }
 
-.theme-rainbow .content-header :not(.settings-dropdown *) {
+.theme-rainbow .content-header h1,
+.theme-rainbow .content-header button svg {
   color: #ffffff !important;
 }
 
@@ -103,7 +104,7 @@
 }
 
 /* Members badge -> YELLOW with black border */
-.theme-rainbow .members-badge {
+.theme-rainbow .content-header .members-badge {
   background-color: #F6EC2E !important;
   border-color: #111111 !important;
   color: #111111 !important;
