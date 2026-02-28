@@ -13,15 +13,12 @@ import {
   ChevronDown,
   Search,
   Hash,
-  Monitor,
-  TerminalSquare
+  Monitor
 } from "lucide-react";
 import Draggable from 'react-draggable';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("profile");
-  const [easterEggActive, setEasterEggActive] = useState(false);
-  const [keySequence, setKeySequence] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [theme, setTheme] = useState("theme-green");
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -35,38 +32,29 @@ export default function Home() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Terminal Easter Egg Listener
-  if (typeof window !== "undefined") {
-    window.onkeydown = (e) => {
-      const newSeq = (keySequence + e.key).slice(-4);
-      setKeySequence(newSeq);
-      if (newSeq.toLowerCase() === "sudo") {
-        setEasterEggActive(true);
-      }
-    };
-  }
+
 
   return (
     <main className={`min-h-screen w-full relative p-4 md:p-12 font-sans overflow-hidden ${theme} transition-colors duration-500`}>
-      {/* Background decoration - Fake Folders */}
-      <div className="absolute top-10 left-10 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[var(--window-bg)] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[#2d2d2d] -rotate-2">Projects</span>
+      {/* Background decoration - Fake Folders (Hidden on mobile) */}
+      <div className="absolute top-10 left-10 hidden md:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
+        <div className="w-16 h-12 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] -rotate-2">Projects</span>
       </div>
 
-      <div className="absolute bottom-20 right-16 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-white border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-white before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-white px-2 py-0.5 border-2 border-[#2d2d2d] rotate-3">Assets.zip</span>
+      <div className="absolute bottom-20 right-16 hidden md:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
+        <div className="w-16 h-12 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] rotate-3">Assets.zip</span>
       </div>
 
-      <div className="absolute top-40 right-10 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[#2d2d2d] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#F8F5E9] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[#2d2d2d] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[#F8F5E9] mt-2 bg-[#2d2d2d] px-2 py-0.5 border-2 border-[#2d2d2d] -rotate-6">SECRET</span>
+      <div className="absolute top-40 right-10 hidden lg:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
+        <div className="w-16 h-12 bg-[var(--window-bg-hover)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg-hover)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] -rotate-6">SECRET</span>
       </div>
 
-      <div className="absolute bottom-10 left-32 flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
-        <div className="w-16 h-12 bg-[var(--window-bg-hover)] border-[3px] border-[#2d2d2d] rounded-sm shadow-[4px_4px_0_0_#2d2d2d] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg-hover)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[#2d2d2d] before:rounded-t-sm" />
-        <span className="text-xs font-bold text-[#2d2d2d] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[#2d2d2d] rotate-2">Client Work</span>
+      <div className="absolute bottom-10 left-32 hidden lg:flex flex-col items-center gap-1 cursor-pointer hover:scale-105 transition-transform z-0">
+        <div className="w-16 h-12 bg-[var(--window-bg-hover)] border-[3px] border-[var(--window-border)] rounded-sm shadow-[4px_4px_0_0_var(--window-border)] relative before:content-[''] before:absolute before:top-[-10px] before:left-[-3px] before:w-6 before:h-3 before:bg-[var(--window-bg-hover)] before:border-t-[3px] before:border-l-[3px] before:border-r-[3px] before:border-[var(--window-border)] before:rounded-t-sm" />
+        <span className="text-xs font-bold text-[var(--window-text)] mt-2 bg-[var(--window-bg)] px-2 py-0.5 border-2 border-[var(--window-border)] rotate-2">Client Work</span>
       </div>
 
       {/* Main Window Container */}
@@ -79,7 +67,7 @@ export default function Home() {
           disabled={isMobile}
           bounds="parent"
         >
-          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-5xl h-full md:h-[85vh] bg-[var(--window-bg)] md:border-[3px] border-[var(--window-border)] md:rounded-xl shadow-none md:shadow-[8px_8px_0_0_var(--window-border)] flex flex-col overflow-hidden relative transition-shadow">
+          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-6xl h-full md:h-[85vh] bg-[var(--window-bg)] md:border-[3px] border-[var(--window-border)] md:rounded-xl shadow-none md:shadow-[10px_10px_0_0_var(--window-border)] flex flex-col overflow-hidden relative transition-all">
             {/* Title Bar - Drag Handle */}
             <div className="drag-handle h-12 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
               <div className="flex gap-2">
@@ -94,10 +82,10 @@ export default function Home() {
             {/* Content Area */}
             <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
               {/* Sidebar */}
-              <div className="sidebar-area w-full md:max-w-[260px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex md:flex-col shrink-0 overflow-x-auto custom-scrollbar md:overflow-visible relative">
+              <div className="sidebar-area w-full md:max-w-[240px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex md:flex-col shrink-0 overflow-x-auto no-scrollbar md:overflow-visible relative">
 
                 {/* Channels List (Horizontal on Mobile, Vertical on Desktop) */}
-                <div className="flex md:flex-col p-2 md:p-4 gap-2 md:gap-6 w-max mx-auto md:w-full md:mx-0 items-center md:items-stretch">
+                <div className="flex md:flex-col p-1.5 md:p-4 gap-1.5 md:gap-6 w-max mx-auto md:w-full md:mx-0 items-center md:items-stretch">
                   <div className="flex flex-row md:flex-col md:w-full">
                     <div className="hidden md:flex items-center gap-2 text-[var(--window-text)] font-black mb-3">
                       <MessageSquare size={20} strokeWidth={3} />
@@ -107,30 +95,30 @@ export default function Home() {
                       <button
                         onClick={() => setActiveTab("profile")}
                         data-tab="profile"
-                        className={`tab-btn tab-btn-profile whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 rounded font-bold transition-all ${activeTab === 'profile' ? 'tab-active shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] hover:border-[var(--window-border)]'}`}
+                        className={`tab-btn tab-btn-profile whitespace-nowrap flex items-center gap-1.5 md:gap-2 px-2.5 py-1.5 md:px-3 md:py-2 border md:border-2 rounded font-bold transition-all ${activeTab === 'profile' ? 'tab-active shadow-[1.5px_1.5px_0_0_var(--window-border)] md:shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-[var(--window-border)] md:border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] md:hover:border-[var(--window-border)]'}`}
                       >
-                        <span className="text-xl leading-none opacity-50">#</span> profile
+                        <span className="text-lg md:text-xl leading-none opacity-50">#</span> profile
                       </button>
                       <button
                         onClick={() => setActiveTab("projects")}
                         data-tab="projects"
-                        className={`tab-btn tab-btn-projects whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 rounded font-bold transition-all ${activeTab === 'projects' ? 'tab-active shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] hover:border-[var(--window-border)]'}`}
+                        className={`tab-btn tab-btn-projects whitespace-nowrap flex items-center gap-1.5 md:gap-2 px-2.5 py-1.5 md:px-3 md:py-2 border md:border-2 rounded font-bold transition-all ${activeTab === 'projects' ? 'tab-active shadow-[1.5px_1.5px_0_0_var(--window-border)] md:shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-[var(--window-border)] md:border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] md:hover:border-[var(--window-border)]'}`}
                       >
-                        <span className="text-xl leading-none opacity-50">#</span> projects
+                        <span className="text-lg md:text-xl leading-none opacity-50">#</span> projects
                       </button>
                       <button
                         onClick={() => setActiveTab("certificates")}
                         data-tab="certificates"
-                        className={`tab-btn tab-btn-certificates whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 rounded font-bold transition-all ${activeTab === 'certificates' ? 'tab-active shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] hover:border-[var(--window-border)]'}`}
+                        className={`tab-btn tab-btn-certificates whitespace-nowrap flex items-center gap-1.5 md:gap-2 px-2.5 py-1.5 md:px-3 md:py-2 border md:border-2 rounded font-bold transition-all ${activeTab === 'certificates' ? 'tab-active shadow-[1.5px_1.5px_0_0_var(--window-border)] md:shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-[var(--window-border)] md:border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] md:hover:border-[var(--window-border)]'}`}
                       >
-                        <span className="text-xl leading-none opacity-50">#</span> certificates
+                        <span className="text-lg md:text-xl leading-none opacity-50">#</span> certificates
                       </button>
                       <button
                         onClick={() => setActiveTab("contact")}
                         data-tab="contact"
-                        className={`tab-btn tab-btn-contact whitespace-nowrap flex items-center gap-2 px-3 py-2 border-2 rounded font-bold transition-all ${activeTab === 'contact' ? 'tab-active shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] hover:border-[var(--window-border)]'}`}
+                        className={`tab-btn tab-btn-contact whitespace-nowrap flex items-center gap-1.5 md:gap-2 px-2.5 py-1.5 md:px-3 md:py-2 border md:border-2 rounded font-bold transition-all ${activeTab === 'contact' ? 'tab-active shadow-[1.5px_1.5px_0_0_var(--window-border)] md:shadow-[2px_2px_0_0_var(--window-border)] border-[var(--window-border)]' : 'border-[var(--window-border)] md:border-transparent text-[var(--window-text)] opacity-70 hover:opacity-100 hover:bg-[var(--window-bg-hover)] md:hover:border-[var(--window-border)]'}`}
                       >
-                        <span className="text-xl leading-none opacity-50">#</span> contact
+                        <span className="text-lg md:text-xl leading-none opacity-50">#</span> contact
                       </button>
                     </div>
                   </div>
@@ -157,14 +145,14 @@ export default function Home() {
                 <div className="flex-1 hidden md:block" />
 
                 {/* Bottom User Area - Hidden on Mobile to save space */}
-                <div className="user-area hidden md:flex p-4 border-t-[3px] border-[var(--window-border)] flex items-center gap-3 bg-[var(--window-bg-hover)]">
-                  <div className="w-12 h-12 rounded bg-[#2d2d2d] border-[3px] border-[#2d2d2d] shrink-0 overflow-hidden shadow-[2px_2px_0_0_#2d2d2d] grayscale">
+                <div className="user-area hidden md:flex p-4 border-t-[3px] border-[var(--window-border)] flex items-center gap-3 bg-[var(--window-bg-hover)] hover:bg-[var(--window-bg)] transition-colors cursor-pointer group/user">
+                  <div className="w-12 h-12 rounded bg-[var(--window-border)] border-[3px] border-[var(--window-border)] shrink-0 overflow-hidden shadow-[2px_2px_0_0_var(--window-border)] grayscale group-hover/user:grayscale-0 transition-all">
                     <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=dev_portfolio`} alt="avatar" className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-black text-sm uppercase truncate">Web Developer</div>
-                    <div className="text-xs text-[#2d2d2d] font-bold flex items-center gap-1 mt-1">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#2d2d2d] border-2 border-[#F8F5E9]" /> Online
+                    <div className="font-black text-sm uppercase truncate text-[var(--window-text)] group-hover/user:translate-x-1 transition-transform">Web Developer</div>
+                    <div className="text-xs text-[var(--window-text)] font-bold flex items-center gap-1 mt-1 opacity-70 group-hover/user:opacity-100 transition-opacity">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[var(--window-border)] border-2 border-[var(--window-bg)] animate-pulse" /> Online
                     </div>
                   </div>
                 </div>
@@ -173,15 +161,15 @@ export default function Home() {
               {/* Main Content Pane */}
               <div className="content-pane flex-1 flex flex-col bg-[var(--window-bg)] overflow-hidden min-h-0 relative">
                 {/* Header */}
-                <div className="content-header h-16 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex items-center justify-between px-6 shrink-0 relative">
+                <div className="content-header h-14 md:h-16 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex items-center justify-between px-4 md:px-6 shrink-0 relative">
                   <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#2d2d2d]/10" />
                   <div>
                     <h1 className="font-black text-2xl text-[var(--window-text)] flex items-center gap-2">
                       <span className="opacity-40">#</span> {activeTab}
                     </h1>
                   </div>
-                  <div className="flex items-center gap-4 text-sm font-bold text-[#2d2d2d]">
-                    <span className="members-badge hidden md:inline-block px-2 py-1 bg-yellow-100 border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">Members: [1]</span>
+                  <div className="flex items-center gap-4 text-sm font-bold text-[var(--window-text)]">
+                    <span className="members-badge hidden md:inline-block px-2 py-1 bg-[var(--window-bg-hover)] border-2 border-[var(--window-border)] shadow-[2px_2px_0_0_var(--window-border)]">Members: [1]</span>
                     <button className="header-icon-btn p-1 hover:bg-[var(--window-bg-hover)] border-2 border-transparent hover:border-[var(--window-border)] rounded transition-all">
                       <Search className="text-[var(--window-text)]" size={20} strokeWidth={3} />
                     </button>
@@ -234,10 +222,10 @@ export default function Home() {
                               <span>Carnival</span>
                               {theme === 'theme-rainbow' && <div className="w-2 h-2 rounded-full bg-[var(--window-text)]" />}
                             </button>
-                            <div className="pt-2 mt-1 border-t-2 border-dashed border-[#2d2d2d]">
+                            <div className="pt-2 mt-1 border-t-2 border-dashed border-[var(--window-border)]">
                               <button
                                 onClick={() => { setPosition({ x: 0, y: 0 }); setIsSettingsOpen(false); }}
-                                className="w-full text-left px-3 py-2 bg-yellow-50 hover:bg-yellow-100 font-black text-xs uppercase border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all rounded text-black"
+                                className="w-full text-left px-3 py-2 bg-[var(--window-bg-hover)] hover:bg-[var(--window-bg)] font-black text-xs uppercase border-2 border-[var(--window-border)] shadow-[2px_2px_0_0_var(--window-border)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all rounded text-[var(--window-text)]"
                               >
                                 Reset Window Position
                               </button>
@@ -260,10 +248,10 @@ export default function Home() {
                 </div>
 
                 {/* Message Input Bottom Bar */}
-                <div className="input-bar p-4 border-t-[3px] border-[var(--window-border)] bg-[var(--window-bg)]">
-                  <div className="w-full h-12 border-[3px] border-[var(--window-border)] rounded flex items-center px-4 bg-[var(--window-bg-hover)] shadow-[2px_2px_0_0_var(--window-border)] focus-within:shadow-[4px_4px_0_0_var(--window-border)] transition-shadow">
-                    <input type="text" placeholder={`Type 'sudo' for a surprise...`} className="flex-1 bg-transparent border-none outline-none font-bold text-[var(--window-text)] placeholder:text-[var(--window-text)] opacity-50" />
-                    <button className="px-4 py-1.5 bg-[var(--window-border)] text-[var(--window-bg)] font-black text-sm border-2 border-[var(--window-border)] rounded hover:opacity-80 transition-opacity shadow-[2px_2px_0_0_var(--window-border)]">Send</button>
+                <div className="input-bar p-3 md:p-4 border-t-[3px] border-[var(--window-border)] bg-[var(--window-bg)] pb-6 md:pb-4">
+                  <div className="w-full h-10 md:h-12 border-[2px] md:border-[3px] border-[var(--window-border)] rounded flex items-center px-3 md:px-4 bg-[var(--window-bg-hover)] shadow-[1.5px_1.5px_0_0_var(--window-border)] md:shadow-[2px_2px_0_0_var(--window-border)] focus-within:shadow-[3px_3px_0_0_var(--window-border)] md:focus-within:shadow-[4px_4px_0_0_var(--window-border)] transition-shadow">
+                    <input type="text" placeholder="typing..." className="flex-1 min-w-0 bg-transparent border-none outline-none font-bold text-[var(--window-text)] placeholder:text-[var(--window-text)] opacity-50 text-sm md:text-base" />
+                    <button className="ml-2 px-3 md:px-4 py-1 md:py-1.5 bg-[var(--window-border)] text-[var(--window-bg)] font-black text-xs md:text-sm border md:border-2 border-[var(--window-border)] rounded hover:opacity-80 transition-opacity shadow-[1.5px_1.5px_0_0_var(--window-border)] md:shadow-[2px_2px_0_0_var(--window-border)]">Send</button>
                   </div>
                 </div>
               </div>
@@ -272,25 +260,6 @@ export default function Home() {
         </Draggable>
       </div>
 
-      {/* Easter Egg Modal */}
-      {easterEggActive && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="w-full max-w-2xl bg-black border-4 border-[#27C93F] p-6 rounded shadow-[0_0_20px_#27C93F] font-mono text-[#27C93F]">
-            <div className="flex justify-between items-center border-b-2 border-[#27C93F] pb-2 mb-4">
-              <span className="font-bold flex items-center gap-2"><TerminalSquare size={18} /> ROOT ACCESS GRANTED</span>
-              <button onClick={() => setEasterEggActive(false)} className="px-2 py-0.5 bg-[#27C93F] text-black font-black hover:bg-white hover:text-black">X</button>
-            </div>
-            <div className="space-y-2 opacity-90">
-              <p>{'>'} Initializing hidden protocols...</p>
-              <p className="delay-100">{'>'} Bypassing mainframe security...</p>
-              <p className="delay-200 text-yellow-400">{'>'} WARNING: Unauthorized access detected.</p>
-              <p className="delay-300">{'>'} Just kidding. Thanks for finding the Easter Egg!</p>
-              <p className="delay-500 mt-4 text-white">Hello there! You seem to be poking around. I'm glad you liked the design enough to explore. Feel free to contact me if you have a cool project in mind!</p>
-              <p className="mt-8 animate-pulse">_</p>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
@@ -298,10 +267,10 @@ export default function Home() {
 // Sub-components
 function ProfileSection() {
   return (
-    <div className="space-y-10">
-      <div className="text-center pb-8 border-b-2 border-dashed border-[var(--window-border)] opacity-50">
-        <h2 className="text-4xl md:text-5xl font-black uppercase text-[var(--window-text)] tracking-tighter shadow-sm">Hello, World!</h2>
-        <p className="mt-4 font-bold text-[var(--window-text)] opacity-60 font-mono text-sm max-w-lg mx-auto">This is where I build things that live on the internet.</p>
+    <div className="space-y-6 md:space-y-10">
+      <div className="text-center pb-6 md:pb-8 border-b-2 border-dashed border-[var(--window-border)] opacity-50">
+        <h2 className="text-3xl md:text-5xl font-black uppercase text-[var(--window-text)] tracking-tighter shadow-sm leading-tight">Hello, World!</h2>
+        <p className="mt-3 md:mt-4 font-bold text-[var(--window-text)] opacity-60 font-mono text-xs md:text-sm max-w-lg mx-auto px-4">This is where I build things that live on the internet.</p>
       </div>
 
       <div className="flex gap-4 group">
@@ -366,7 +335,7 @@ function CertificatesSection() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 mt-4">
-            <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] transition-all flex flex-col md:flex-row relative">
+            <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--window-border)] md:shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] transition-all flex flex-col md:flex-row relative">
               <div className="absolute top-0 right-0 p-2 bg-[var(--window-border)] text-[var(--window-bg)] border-l-[3px] border-b-[3px] border-[var(--window-border)] font-black uppercase text-xs">Featured</div>
               <div className="h-48 md:h-auto md:w-1/3 bg-[var(--window-bg-hover)] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[var(--window-border)] p-4 flex items-center justify-center relative overflow-hidden">
                 <div className="w-full h-full border-2 border-dashed border-[var(--window-border)] rounded bg-[var(--window-bg-hover)] flex items-center justify-center flex-col gap-2">
@@ -385,7 +354,7 @@ function CertificatesSection() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] transition-all flex flex-col">
+              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--window-border)] md:shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] transition-all flex flex-col">
                 <div className="h-40 bg-[var(--window-bg-hover)] border-b-[3px] border-[var(--window-border)] p-4 flex items-center justify-center">
                   <FileBadge size={40} className="text-[var(--window-text)] opacity-80" />
                 </div>
@@ -399,7 +368,7 @@ function CertificatesSection() {
                 </div>
               </div>
 
-              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] transition-all flex flex-col">
+              <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--window-border)] md:shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--window-border)] transition-all flex flex-col">
                 <div className="h-40 bg-[var(--window-bg-hover)] border-b-[3px] border-[var(--window-border)] p-4 flex items-center justify-center">
                   <FileBadge size={40} className="text-[var(--window-text)] opacity-80" />
                 </div>
@@ -433,7 +402,7 @@ function ContactSection() {
             <span className="text-xs font-bold text-[var(--window-text)] opacity-60 font-mono px-2 py-0.5 bg-[var(--window-bg-hover)] border border-[var(--window-border)] rounded">12:10</span>
           </div>
 
-          <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] p-8 rounded-xl shadow-[8px_8px_0_0_var(--window-border)] mt-4 relative">
+          <div className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] p-5 md:p-8 rounded-xl shadow-[8px_8px_0_0_var(--window-border)] mt-4 relative">
             <div className="absolute top-0 right-0 w-16 h-16 border-l-[3px] border-b-[3px] border-[var(--window-border)] bg-[var(--window-border)] rounded-tr-lg rounded-bl flex items-center justify-center">
               <Mail fill="currentColor" className="text-[var(--window-bg)]" size={28} />
             </div>
@@ -530,7 +499,7 @@ function ProjectsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
             {projects.map((project, index) => (
-              <div key={index} className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0_0_var(--window-border)] transition-all flex flex-col group/card">
+              <div key={index} className="bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--window-border)] md:shadow-[6px_6px_0_0_var(--window-border)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0_0_var(--window-border)] transition-all flex flex-col group/card">
                 <div className={`h-32 ${project.color} border-b-[3px] border-[var(--window-border)] p-4 flex items-center justify-center relative overflow-hidden group-hover/card:brightness-110 transition-all`}>
                   <Folder size={48} className="text-white opacity-40" strokeWidth={2} />
                   <div className="absolute inset-0 bg-white/5 opacity-0 group-hover/card:opacity-100 transition-opacity" />
