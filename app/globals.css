@@ -89,6 +89,26 @@
   color: #ffffff !important;
 }
 
+/* Header icon buttons (Search, Settings) normal state -> transparent */
+.theme-rainbow .content-header .header-icon-btn {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.theme-rainbow .content-header .header-icon-btn svg {
+  color: #ffffff !important;
+}
+
+/* Header icon buttons hover or active (settings open) -> BLACK */
+.theme-rainbow .content-header .header-icon-btn:hover {
+  background-color: #111111 !important;
+  border-color: #111111 !important;
+}
+
+.theme-rainbow .content-header .header-icon-btn:hover svg {
+  color: #ffffff !important;
+}
+
 /* Ensure settings dropdown specifically follows theme variables but stays dark/readable */
 .theme-rainbow .settings-dropdown {
   background-color: #ffffff !important;

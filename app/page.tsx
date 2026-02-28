@@ -175,13 +175,13 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-4 text-sm font-bold text-[#2d2d2d]">
                     <span className="members-badge hidden md:inline-block px-2 py-1 bg-yellow-100 border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">Members: [1]</span>
-                    <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
+                    <button className="header-icon-btn p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
                       <Search className="text-[#2d2d2d]" size={20} strokeWidth={3} />
                     </button>
                     <div className="relative">
                       <button
                         onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                        className={`p-1 border-2 rounded transition-all ${isSettingsOpen ? 'bg-gray-100 border-[#2d2d2d]' : 'hover:bg-gray-100 border-transparent hover:border-[#2d2d2d]'}`}
+                        className={`header-icon-btn p-1 border-2 rounded transition-all ${isSettingsOpen ? 'bg-gray-100 border-[#2d2d2d]' : 'hover:bg-gray-100 border-transparent hover:border-[#2d2d2d]'}`}
                       >
                         <Settings className="text-[#2d2d2d]" size={20} strokeWidth={3} />
                       </button>
