@@ -83,12 +83,27 @@
   border-bottom-color: #111111 !important;
 }
 
-.theme-rainbow .content-header * {
+.theme-rainbow .content-header :not(.settings-dropdown *) {
   color: #ffffff !important;
 }
 
+/* Ensure settings dropdown specifically follows theme variables but stays dark/readable */
+.theme-rainbow .settings-dropdown {
+  background-color: #ffffff !important;
+}
+
+.theme-rainbow .settings-dropdown * {
+  color: #111111 !important;
+}
+
+.theme-rainbow .settings-dropdown span {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
 /* Members badge -> YELLOW with black border */
-.theme-rainbow .content-header span {
+.theme-rainbow .members-badge {
   background-color: #F6EC2E !important;
   border-color: #111111 !important;
   color: #111111 !important;
@@ -125,7 +140,13 @@
   background-color: #FF2D2D !important;
   border-color: #111111 !important;
   color: #ffffff !important;
-  box-shadow: 3px 3px 0 #111111 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  height: calc(100% - 12px) !important;
+  /* Fit inside the 48px container with padding */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* Nav buttons */

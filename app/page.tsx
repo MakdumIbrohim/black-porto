@@ -174,7 +174,7 @@ export default function Home() {
                     </h1>
                   </div>
                   <div className="flex items-center gap-4 text-sm font-bold text-[#2d2d2d]">
-                    <span className="hidden md:inline-block px-2 py-1 bg-yellow-100 border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">Members: [1]</span>
+                    <span className="members-badge hidden md:inline-block px-2 py-1 bg-yellow-100 border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d]">Members: [1]</span>
                     <button className="p-1 hover:bg-gray-100 border-2 border-transparent hover:border-[#2d2d2d] rounded transition-all">
                       <Search className="text-[#2d2d2d]" size={20} strokeWidth={3} />
                     </button>
@@ -187,7 +187,7 @@ export default function Home() {
                       </button>
 
                       {isSettingsOpen && (
-                        <div className="absolute top-full right-0 mt-2 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded shadow-[4px_4px_0_0_var(--window-border)] w-48 z-50 overflow-hidden">
+                        <div className="settings-dropdown absolute top-full right-0 mt-2 bg-[var(--window-bg)] border-[3px] border-[var(--window-border)] rounded shadow-[4px_4px_0_0_var(--window-border)] w-48 z-50 overflow-hidden">
                           <div className="px-3 py-2 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg-hover)] font-black uppercase text-xs text-[var(--window-text)]">
                             Theme Changer
                           </div>
@@ -230,7 +230,7 @@ export default function Home() {
                             <div className="pt-2 mt-1 border-t-2 border-dashed border-[#2d2d2d]">
                               <button
                                 onClick={() => { setPosition({ x: 0, y: 0 }); setIsSettingsOpen(false); }}
-                                className="w-full text-left px-3 py-2 bg-yellow-50 hover:bg-yellow-100 font-black text-xs uppercase border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all rounded"
+                                className="w-full text-left px-3 py-2 bg-yellow-50 hover:bg-yellow-100 font-black text-xs uppercase border-2 border-[#2d2d2d] shadow-[2px_2px_0_0_#2d2d2d] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all rounded text-black"
                               >
                                 Reset Window Position
                               </button>
