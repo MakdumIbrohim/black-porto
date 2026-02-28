@@ -2,43 +2,51 @@
 
 :root {
   --background: #76ce70;
-  /* Green retro background */
   --foreground: #2d2d2d;
   --window-bg: #F8F5E9;
   --window-bg-hover: #e0dcd0;
+  --window-text: #2d2d2d;
+  --window-border: #2d2d2d;
 }
 
 .theme-green {
-  /* Slack Green Classic */
+  /* Retro Cream / Slack Green */
   --background: #76ce70;
-  --window-bg: #F8F5E9;
-  --window-bg-hover: #e0dcd0;
+  --window-bg: #fef9ef;
+  --window-bg-hover: #f0e9d2;
+  --window-text: #2d2d2d;
+  --window-border: #2d2d2d;
   background-color: var(--background);
 }
 
 .theme-gray {
-  /* Windows 95 */
-  --background: #abaeb5;
-  --window-bg: #d4d0c8;
-  --window-bg-hover: #b8b3a8;
+  /* Win95 Steel Gray */
+  --background: #7a8394;
+  --window-bg: #c8d0d8;
+  --window-bg-hover: #b0bac4;
+  --window-text: #1a1a2e;
+  --window-border: #1a1a2e;
   background-color: var(--background);
 }
 
 .theme-blue {
-  /* Classic Teal */
+  /* Classic Teal Mint */
   --background: #008080;
-  --window-bg: #e0dfd1;
-  --window-bg-hover: #c4c3b5;
+  --window-bg: #d4ecea;
+  --window-bg-hover: #b2d8d8;
+  --window-text: #003333;
+  --window-border: #005555;
   background-color: var(--background);
 }
 
 .theme-black {
-  /* Pitch Black */
-  --background: #111111;
-  --window-bg: #222222;
-  --window-bg-hover: #333333;
-  --foreground: #F8F5E9;
-  /* Invert text for dark mode */
+  /* Deep Dark Slate */
+  --background: #0f172a;
+  --window-bg: #1e293b;
+  --window-bg-hover: #334155;
+  --window-text: #e2e8f0;
+  --window-border: #475569;
+  --foreground: #e2e8f0;
   background-color: var(--background);
 }
 
@@ -47,6 +55,8 @@
   --color-foreground: var(--foreground);
   --color-window: var(--window-bg);
   --color-window-hover: var(--window-bg-hover);
+  --color-window-text: var(--window-text);
+  --color-window-border: var(--window-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
