@@ -23,6 +23,7 @@ export default function Home() {
   const [theme, setTheme] = useState("theme-green");
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
   const draggableRef = useRef(null);
 
   useEffect(() => {
@@ -64,10 +65,12 @@ export default function Home() {
           nodeRef={draggableRef}
           position={position}
           onDrag={(e, data) => setPosition({ x: data.x, y: data.y })}
+          onStart={() => setIsDragging(true)}
+          onStop={() => setIsDragging(false)}
           disabled={isMobile}
           bounds="parent"
         >
-          <div ref={draggableRef} className="pointer-events-auto w-full md:w-[90%] md:max-w-6xl h-full md:h-[85vh] bg-[var(--window-bg)] md:border-[3px] border-[var(--window-border)] md:rounded-xl shadow-none md:shadow-[10px_10px_0_0_var(--window-border)] flex flex-col overflow-hidden relative transition-all">
+          <div ref={draggableRef} className={`pointer-events-auto w-full md:w-[90%] md:max-w-6xl h-full md:h-[85vh] bg-[var(--window-bg)] md:border-[3px] border-[var(--window-border)] md:rounded-xl shadow-none md:shadow-[10px_10px_0_0_var(--window-border)] flex flex-col overflow-hidden relative ${!isDragging ? 'transition-all duration-300' : ''}`}>
             {/* Title Bar - Drag Handle */}
             <div className="drag-handle h-12 border-b-[3px] border-[var(--window-border)] bg-[var(--window-bg)] flex items-center justify-between px-4 shrink-0 shadow-sm cursor-grab active:cursor-grabbing">
               <div className="flex gap-2">
